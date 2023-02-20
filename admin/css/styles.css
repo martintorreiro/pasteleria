@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "News Cycle", "Open Sans", sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.w-960 {
+  width: 960px;
+}
+
+.centrado {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.jc-center {
+  justify-content: center;
+}
+.jc-sb {
+  justify-content: space-between;
+}
+
+.jc-start {
+  justify-content: flex-start;
+}
+
+.jc-end {
+  justify-content: flex-end;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.ai-start {
+  align-items: flex-start;
+}
+
+.ai-end {
+  align-items: flex-end;
+}
+
+.d-line-block {
+  display: inline-block;
+}
+
+.font-s-12 {
+  font-size: 12px;
+}
+
+.font-s-14 {
+  font-size: 14px;
+}
+
+.font-s-16 {
+  font-size: 16px;
+}
+
+.font-s-18 {
+  font-size: 18px;
+}
+
+.font-s-28 {
+  font-size: 28px;
+}
+
+.marg-r-10 {
+  margin-right: 10px;
+}
+
+.marg-b-20 {
+  margin-bottom: 20px;
+}
+
+.marg-b-40 {
+  margin-bottom: 40px;
+}
+
+.marg-top-40 {
+  margin-top: 40px;
+}
+
+.mayu-1 {
+  text-transform: capitalize;
+}
+
+.mayu {
+  text-transform: uppercase;
+}
+
+/* ------------------------TABLAS---------------------------- */
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  padding: 20px;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+/* -------------------FORMULARIO ----------------- */
+
+.formulario_estandar {
+  background-color: white;
+  border: 0.5px solid rgb(192, 192, 192);
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 600px;
+}
+.formulario_estandar .cabecera {
+  padding: 12px 20px;
+  background-color: #007bff;
+}
+
+.formulario_estandar .cabecera h2 {
+  font-size: 18px;
+  color: white;
+}
+
+.formulario_estandar .form_body {
+  width: 100%;
+  padding: 20px;
+}
+
+.formulario_estandar .form_group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario_estandar .form_group label {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.formulario_estandar .form_group input[type="text"],
+.formulario_estandar .form_group select,
+.formulario_estandar .form_group input[type="time"] {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid rgb(192, 192, 192);
+  background-color: white;
+}
+
+.formulario_estandar .form_group input[type="text"]:focus,
+.formulario_estandar .form_group select:focus,
+.formulario_estandar .form_group input[type="time"]:focus {
+  outline: none;
+  border: 1px solid #007bff;
+}
+
+.formulario_estandar .controls {
+  padding: 20px;
+  text-align: end;
+}
+
+.formulario_estandar .controls button {
+  font-size: 16px;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  background-color: #007bff;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.formulario_estandar .controls button[id="cancelar"] {
+  background-color: #dc3545;
+}
+
+.formulario_estandar .controls button:hover {
+  opacity: 0.85;
+}
