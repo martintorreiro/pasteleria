@@ -1,20 +1,20 @@
-const eventosSubcategorias = () => {
-  $("#añadir-subcategoria").click(function () {
-    $("#controles-subcategorias").load("ajax/nueva-subcategoria.php", () => {
+const eventosProductos = () => {
+  $("#añadir-producto").click(function () {
+    $("#controles-productos").load("ajax/producto/nuevo-producto.php", () => {
       $("#cancelar").click(() => {
-        $("#controles-subcategorias").html(
-          "<button id='añadir-subcategoria'>Añadir Subcategoria</button>"
+        $("#controles-productos").html(
+          "<button id='añadir-producto'>Añadir Producto</button>"
         );
-        eventosSubcategorias();
+        eventosProductos();
       });
 
-      $("#nueva-subcategoria-form").submit(function (e) {
+      $("#nuevo-producto-form").submit(function (e) {
         e.preventDefault();
 
-        const fdata = new FormData($("#nueva-subcategoria-form").get(0));
+        const fdata = new FormData($("#nuevo-producto-form").get(0));
 
         $.ajax({
-          url: "servicio/guardar-subcategoria.php",
+          url: "servicio/producto/guardar-producto.php",
           type: "POST",
           data: fdata,
           processData: false,
@@ -24,8 +24,8 @@ const eventosSubcategorias = () => {
           },
           success: function (data) {
             if (data) {
-              cargarSubcategorias();
-              $("#nueva-subcategoria-form input").each(function () {
+              cargarCategorias();
+              $("#nuevo-producto-form input").each(function () {
                 this.value = "";
               });
             } else {
@@ -36,7 +36,7 @@ const eventosSubcategorias = () => {
     });
   });
 
-  $(".editar").click(function () {
+  $(".editarCat").click(function () {
     const idCategoria = $(this).attr("data-id");
     $("#controles-categorias").load(
       `ajax/editar-categoria.php?id=${idCategoria}`,

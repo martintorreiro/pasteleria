@@ -76,4 +76,86 @@ const eventosCategorias = () => {
       }
     );
   });
+
+  $(".añadirSub").click(function () {
+    const idCategoria = $(this).attr("data-id");
+    $("#controles-categorias").load(
+      `ajax/nueva-subcategoria.php?id=${idCategoria}`,
+      () => {
+        $("#cancelar").click(() => {
+          $("#controles-categorias").html(
+            "<button id='añadir-categoria'>Añadir Categoria</button>"
+          );
+          eventosCategorias();
+        });
+
+        $("#nueva-subcategoria-form").submit(function (e) {
+          e.preventDefault();
+
+          const editData = new FormData($("#nueva-subcategoria-form").get(0));
+
+          $.ajax({
+            url: "servicio/guardar-subcategoria.php",
+            type: "POST",
+            data: editData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+              //something before send
+            },
+            success: function (data) {
+              if (data) {
+                $("#controles-categorias").html(
+                  "<button id='añadir-categoria'>Añadir Categoria</button>"
+                );
+                cargarCategorias();
+              } else {
+              }
+            },
+          });
+        });
+      }
+    );
+  });
+
+  $(".editarSub").click(function () {
+    const idCategoria = $(this).attr("data-id");
+    $("#controles-categorias").load(
+      `ajax/editar-subcategoria.php?id=${idCategoria}`,
+      () => {
+        $("#cancelar").click(() => {
+          $("#controles-categorias").html(
+            "<button id='añadir-categoria'>Añadir Categoria</button>"
+          );
+          eventosCategorias();
+        });
+
+        $("#editar-subcategoria-form").submit(function (e) {
+          e.preventDefault();
+
+          const editData = new FormData($("#editar-subcategoria-form").get(0));
+
+          $.ajax({
+            url: "servicio/editar-subcategoria.php",
+            type: "POST",
+            data: editData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+              //something before send
+            },
+            success: function (data) {
+              if (data) {
+                $("#controles-categorias").html(
+                  "<button id='añadir-categoria'>Añadir Categoria</button>"
+                );
+                cargarCategorias();
+              } else {
+              }
+            },
+          });
+        });
+      }
+    );
+  });
 };

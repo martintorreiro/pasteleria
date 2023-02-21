@@ -3,13 +3,14 @@
 include "../db.php";
 
 if($_POST){
+
     $id = $_POST["id"];
     $nombre = $_POST["nombre"];
     
-    $consulta = "INSERT INTO subcategoria (nombre,id_categoria) VALUES ('$nombre',$id)";
+    $consulta = "UPDATE subcategoria SET nombre = '$nombre'  WHERE id=$id";
     $res = $db->query($consulta);
 
-    echo $res ;
+    echo $id ;
 }
 
 ?>

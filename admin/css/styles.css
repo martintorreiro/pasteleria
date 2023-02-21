@@ -7,6 +7,15 @@
   font-family: "News Cycle", "Open Sans", sans-serif;
 }
 
+:root {
+  --verde-primario: #106460;
+  --verde-secundario: #1a918b;
+  --gris-letras: #afafaf;
+  --gris-fondo: #d4d4d4;
+  --blanco-letras: #ffffff;
+  --naranja: #ff9d34;
+}
+
 body {
   position: relative;
   min-height: 100vh;
@@ -118,18 +127,99 @@ button:hover {
   text-transform: uppercase;
 }
 
+/* ------------------------HEADER---------------------------- */
+
+.header {
+  padding: 12px 18px;
+  background-color: var(--verde-primario);
+  color: white;
+}
+
+.header ul li {
+  margin-left: 12px;
+}
+
+.header ul li a {
+  padding: 8px 12px;
+  color: white;
+}
+
+.header ul li a:hover {
+  opacity: 0.8;
+}
+
+/* -------------------MAIN ----------------- */
+
+main {
+  padding: 40px 10px;
+}
+
+main h1 {
+  color: var(--verde-secundario);
+}
+
+/* ------------------------FOOTER---------------------------- */
+
+footer {
+  padding: 12px 18px;
+  background-color: var(--verde-primario);
+  color: white;
+}
+
 /* ------------------------TABLAS---------------------------- */
 
-table,
-th,
-td {
+.contenedor-tabla {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-tabla td button {
+  background-color: transparent;
+  border: none;
+}
+
+.contenedor-tabla button:hover {
+  opacity: 0.8;
+}
+
+.contenedor-tabla button i {
+  color: var(--verde-secundario);
+  font-size: 20px;
+}
+
+.contenedor-tabla .controles {
+  margin-top: 30px;
+}
+
+.contenedor-tabla .controles button {
+  padding: 8px 12px;
+  border: 2px solid var(--verde-primario);
+  border-radius: 5px;
+  color: var(--verde-primario);
+  font-weight: bold;
+}
+
+table {
+  background-color: var(--gris-fondo);
+  color: var(--verde-secundario);
+  border-radius: 10px;
   border-collapse: collapse;
-  padding: 20px;
+  overflow: hidden;
+}
+
+th {
+  border-bottom: 3px solid var(--verde-primario);
 }
 
 th,
 td {
-  border: 1px solid black;
+  border: 2px solid white;
+  vertical-align: top;
+  text-align: center;
+  padding: 10px 15px;
 }
 
 /* -------------------FORMULARIO ----------------- */
