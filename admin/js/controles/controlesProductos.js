@@ -8,6 +8,16 @@ const eventosProductos = () => {
         eventosProductos();
       });
 
+      $(".form_group #categoria").change(function () {
+        const id_categoria = $(this).val();
+        $(".form_group #subcategoria").load(
+          "ajax/producto/cargar-subcategorias.php",
+          {
+            id_categoria: id_categoria,
+          }
+        );
+      });
+
       $("#nuevo-producto-form").submit(function (e) {
         e.preventDefault();
 
@@ -24,11 +34,13 @@ const eventosProductos = () => {
           },
           success: function (data) {
             if (data) {
-              cargarCategorias();
+              console.log("----->exito", data);
+              cargarProductos();
               $("#nuevo-producto-form input").each(function () {
                 this.value = "";
               });
             } else {
+              console.log("----->error", data);
             }
           },
         });
@@ -36,25 +48,35 @@ const eventosProductos = () => {
     });
   });
 
-  $(".editarCat").click(function () {
-    const idCategoria = $(this).attr("data-id");
-    $("#controles-categorias").load(
-      `ajax/editar-categoria.php?id=${idCategoria}`,
+  $(".editar").click(function () {
+    const idProducto = $(this).attr("data-id");
+    $("#controles-productos").load(
+      `ajax/producto/editar-producto.php?id=${idProducto}`,
       () => {
         $("#cancelar").click(() => {
-          $("#controles-categorias").html(
-            "<button id='añadir-categoria'>Añadir Categoria</button>"
+          $("#controles-productos").html(
+            "<button id='añadir-producto'>Añadir Producto</button>"
           );
-          eventosCategorias();
+          eventosProductos();
         });
 
-        $("#editar-categoria-form").submit(function (e) {
+        $(".form_group #categoria").change(function () {
+          const id_categoria = $(this).val();
+          $(".form_group #subcategoria").load(
+            "ajax/producto/cargar-subcategorias.php",
+            {
+              id_categoria: id_categoria,
+            }
+          );
+        });
+
+        $("#editar-producto-form").submit(function (e) {
           e.preventDefault();
 
-          const editData = new FormData($("#editar-categoria-form").get(0));
+          const editData = new FormData($("#editar-producto-form").get(0));
 
           $.ajax({
-            url: "servicio/editar-categoria.php",
+            url: "servicio/producto/editar-producto.php",
             type: "POST",
             data: editData,
             processData: false,
@@ -64,10 +86,10 @@ const eventosProductos = () => {
             },
             success: function (data) {
               if (data) {
-                $("#controles-categorias").html(
-                  "<button id='añadir-categoria'>Añadir Categoria</button>"
+                $("#controles-productos").html(
+                  "<button id='añadir-producto'>Añadir Producto</button>"
                 );
-                cargarCategorias();
+                cargarProductos();
               } else {
               }
             },

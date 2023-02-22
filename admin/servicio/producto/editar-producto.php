@@ -4,6 +4,7 @@ include "../../db.php";
 
 if($_POST){
     
+    $id = $_POST["id"];
     $nombre = $_POST["nombre"];
     $precio = $_POST["precio"];
     $stock = $_POST["stock"];
@@ -13,8 +14,10 @@ if($_POST){
 
     
     
-    $consulta = "INSERT INTO producto (nombre,precio,stock,descripcion,gluten_free,id_subcategoria)
-                             VALUES ('$nombre','$precio','$stock','$descripcion','$gluten','$subcategoria')";
+    $consulta = "UPDATE producto SET nombre = '$nombre', precio = '$precio',stock = '$stock',
+                                    descripcion = '$descripcion',gluten_free = '$gluten',id_subcategoria = '$subcategoria'
+                                    WHERE id = $id";
+                             
     $res = $db->query($consulta);
 
     echo $res ;

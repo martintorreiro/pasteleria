@@ -1,6 +1,6 @@
 <?php
 
-include "../db.php";
+include "../../db.php";
 
 if($_POST){
     $id = $_POST["id"];

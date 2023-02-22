@@ -1,5 +1,5 @@
 <?php
-include "../db.php";
+include "../../db.php";
 
 $consultaCat = "SELECT * FROM categoria";
 $resCat = $db->query($consultaCat);

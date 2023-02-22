@@ -1,5 +1,5 @@
 <?php
-include "../db.php";
+include "../../db.php";
 $id=$_GET["id"];
 $res = $db->query("SELECT * FROM categoria WHERE id = $id");
 $row = $res->fetch_assoc();
