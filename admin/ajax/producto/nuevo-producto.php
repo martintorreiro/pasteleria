@@ -53,8 +53,8 @@ $(document).ready(function() {
             </div>
 
             <div class="form_group form_group__files">
-                <label for="imagen">Cargar Imagenes</label>
-                <input type="file" id="imagenes[]" name="imagen" required multiple accept=".jpg, .jpeg, .png">
+                <label for="imagenes">Cargar Imagenes</label>
+                <input type="file" id="imagenes" name="imagenes[]" required multiple accept=".jpg, .jpeg, .png">
             </div>
 
             <div class="form_group">

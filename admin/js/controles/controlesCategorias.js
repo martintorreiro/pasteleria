@@ -1,9 +1,11 @@
 const eventosCategorias = () => {
   $("#añadir-categoria").click(function () {
+    $("#controles-categorias").addClass("modal")
     $("#controles-categorias").load(
       "ajax/categoria/nueva-categoria.php",
       () => {
         $("#cancelar").click(() => {
+          $("#controles-categorias").removeClass("modal")
           $("#controles-categorias").html(
             "<button id='añadir-categoria'>Añadir Categoria</button>"
           );
@@ -40,11 +42,13 @@ const eventosCategorias = () => {
   });
 
   $(".editarCat").click(function () {
+    $("#controles-categorias").addClass("modal")
     const idCategoria = $(this).attr("data-id");
     $("#controles-categorias").load(
       `ajax/categoria/editar-categoria.php?id=${idCategoria}`,
       () => {
         $("#cancelar").click(() => {
+          $("#controles-categorias").removeClass("modal")
           $("#controles-categorias").html(
             "<button id='añadir-categoria'>Añadir Categoria</button>"
           );
@@ -81,11 +85,13 @@ const eventosCategorias = () => {
   });
 
   $(".añadirSub").click(function () {
+    $("#controles-categorias").addClass("modal")
     const idCategoria = $(this).attr("data-id");
     $("#controles-categorias").load(
       `ajax/categoria/nueva-subcategoria.php?id=${idCategoria}`,
       () => {
         $("#cancelar").click(() => {
+          $("#controles-categorias").removeClass("modal")
           $("#controles-categorias").html(
             "<button id='añadir-categoria'>Añadir Categoria</button>"
           );
@@ -108,6 +114,7 @@ const eventosCategorias = () => {
             },
             success: function (data) {
               if (data) {
+                $("#controles-categorias").removeClass("modal")
                 $("#controles-categorias").html(
                   "<button id='añadir-categoria'>Añadir Categoria</button>"
                 );
@@ -122,11 +129,13 @@ const eventosCategorias = () => {
   });
 
   $(".editarSub").click(function () {
+    $("#controles-categorias").addClass("modal")
     const idCategoria = $(this).attr("data-id");
     $("#controles-categorias").load(
       `ajax/categoria/editar-subcategoria.php?id=${idCategoria}`,
       () => {
         $("#cancelar").click(() => {
+          $("#controles-categorias").removeClass("modal")
           $("#controles-categorias").html(
             "<button id='añadir-categoria'>Añadir Categoria</button>"
           );
@@ -149,6 +158,7 @@ const eventosCategorias = () => {
             },
             success: function (data) {
               if (data) {
+                $("#controles-categorias").removeClass("modal")
                 $("#controles-categorias").html(
                   "<button id='añadir-categoria'>Añadir Categoria</button>"
                 );

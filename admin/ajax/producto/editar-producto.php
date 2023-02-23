@@ -41,7 +41,7 @@ $(document).ready(function() {
 
             <div class="form_group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" value=<?php echo $rowP["nombre"]?>>
+                <input type="text" id="nombre" name="nombre" value="<?php echo $rowP["nombre"]?>">
             </div>
 
             <div class="form_group">
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
             <div class="form_group">
                 <label for="descripcion">Descripcion:</label>
-                <input type="text" id="descripcion" name="descripcion" value=<?php echo $rowP["descripcion"]?>>
+                <input type="text" id="descripcion" name="descripcion" value="<?php echo $rowP["descripcion"]?>">
             </div>
 
             <div class="form_group">

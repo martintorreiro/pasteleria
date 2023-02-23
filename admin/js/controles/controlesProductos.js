@@ -1,7 +1,9 @@
 const eventosProductos = () => {
   $("#añadir-producto").click(function () {
     $("#controles-productos").load("ajax/producto/nuevo-producto.php", () => {
+      $("#controles-productos").addClass("modal")
       $("#cancelar").click(() => {
+        $("#controles-productos").removeClass("modal")
         $("#controles-productos").html(
           "<button id='añadir-producto'>Añadir Producto</button>"
         );
@@ -33,15 +35,18 @@ const eventosProductos = () => {
             //something before send
           },
           success: function (data) {
-            if (data) {
-              console.log("----->exito", data);
+            
+            const respuesta = JSON.parse(data);
+            
+            if (respuesta.estado==="ok") {
+              console.log("----->exito", respuesta.mensaje);
               cargarProductos();
               $("#nuevo-producto-form input").each(function () {
                 this.value = "";
               });
             } else {
               console.log("----->error", data);
-            }
+            } 
           },
         });
       });
@@ -49,11 +54,13 @@ const eventosProductos = () => {
   });
 
   $(".editar").click(function () {
+    $("#controles-productos").addClass("modal")
     const idProducto = $(this).attr("data-id");
     $("#controles-productos").load(
       `ajax/producto/editar-producto.php?id=${idProducto}`,
       () => {
         $("#cancelar").click(() => {
+          $("#controles-productos").removeClass("modal")
           $("#controles-productos").html(
             "<button id='añadir-producto'>Añadir Producto</button>"
           );
@@ -85,6 +92,7 @@ const eventosProductos = () => {
               //something before send
             },
             success: function (data) {
+              $("#controles-productos").removeClass("modal")
               if (data) {
                 $("#controles-productos").html(
                   "<button id='añadir-producto'>Añadir Producto</button>"
