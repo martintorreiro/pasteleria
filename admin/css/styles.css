@@ -127,9 +127,6 @@ button:hover {
   text-transform: uppercase;
 }
 
-
-
-
 /* ------------------------HEADER---------------------------- */
 
 .header {
@@ -234,7 +231,6 @@ td {
   overflow: hidden;
   width: 80%;
   margin: 20px 0;
-  
 }
 .formulario_estandar .cabecera {
   padding: 12px 20px;
@@ -265,7 +261,10 @@ td {
 
 .formulario_estandar .form_group input[type="text"],
 .formulario_estandar .form_group select,
-.formulario_estandar .form_group input[type="time"] {
+.formulario_estandar .form_group input[type="time"],
+.formulario_estandar .form_group input[type="password"],
+.formulario_estandar .form_group input[type="email"],
+.formulario_estandar .form_group input[type="date"] {
   padding: 6px 12px;
   border-radius: 5px;
   border: 1px solid rgb(192, 192, 192);
@@ -274,7 +273,10 @@ td {
 
 .formulario_estandar .form_group input[type="text"]:focus,
 .formulario_estandar .form_group select:focus,
-.formulario_estandar .form_group input[type="time"]:focus {
+.formulario_estandar .form_group input[type="time"]:focus,
+.formulario_estandar .form_group input[type="password"]:focus,
+.formulario_estandar .form_group input[type="email"]:focus,
+.formulario_estandar .form_group input[type="date"]:focus {
   outline: none;
   border: 1px solid #007bff;
 }
@@ -286,6 +288,7 @@ td {
 .formulario_estandar .form_group__files label {
   padding: 6px 12px;
   border: 1px solid var(--gris-letras);
+  border-radius: 5px;
 }
 
 .formulario_estandar .form_group__files label:hover {
@@ -315,14 +318,52 @@ td {
   opacity: 0.85;
 }
 
+.formulario_estandar .form_inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formulario_estandar .form_inputs > div {
+  width: 45%;
+}
+
+.formulario_estandar .imagenes_guardadas .contenedor_imagenes {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.formulario_estandar .imagenes_guardadas .contenedor_imagenes > div {
+  width: 30%;
+}
+
+.formulario_estandar .imagenes_guardadas .contenedor_imagenes > div img {
+  width: 100%;
+}
+#contenedor-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#contenedor-preview img {
+  width: 30%;
+}
+/* ------------------------PRODUCTO---------------------------- */
+
+.formulario_estandar .imagenes_producto h4 {
+  margin-bottom: 20px;
+}
+
 /* ------------------------MODAL---------------------------- */
 
-.modal{
+.modal {
   width: 100%;
   height: 100vh;
   margin: 0;
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   display: flex;
   justify-content: center;

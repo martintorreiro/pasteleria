@@ -1,8 +1,10 @@
 <?php
 include "../../db.php";
-$consulta = "SELECT p.*,s.nombre AS nombreSubcategoria, c.nombre AS nombreCategoria FROM producto p 
+$consulta = "SELECT p.*,COUNT(f.id) AS imagenes ,s.nombre AS nombreSubcategoria, c.nombre AS nombreCategoria FROM producto p 
+            LEFT JOIN fotos_producto f ON f.id_producto = p.id
             LEFT JOIN subcategoria s ON p.id_subcategoria = s.id
-            LEFT JOIN categoria c ON c.id = s.id_categoria";
+            LEFT JOIN categoria c ON c.id = s.id_categoria
+            GROUP BY p.id";
 $res = $db->query($consulta);
 
     $cadena = "";
@@ -14,7 +16,7 @@ $res = $db->query($consulta);
                 <td>".$row['descripcion']."</td>
                 <td>".$row['precio']."</td>
                 <td>".$row['stock']."</td>
-                <td>".$row['valoracion']."</td>
+                <td>".$row['imagenes']."</td>
                 <td>".$row['gluten_free']."</td>
                 <td>".$row['nombreCategoria']."</td>
                 <td>".$row['nombreSubcategoria']."</td>

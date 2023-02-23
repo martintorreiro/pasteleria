@@ -42,6 +42,12 @@ if($_POST){
 
                     if(!$res){
                         unlink($newFilePath);
+
+                        $respuesta->estado="404";
+                        $respuesta->mensaje="Error al guardar las imagenes.";
+
+                        echo json_encode($respuesta) ;
+
                     }else{
                         $respuesta->estado="ok";
                         $respuesta->mensaje="Imagenes guardadas correctamente.";
@@ -52,7 +58,7 @@ if($_POST){
                 }
             }
         }
-    }
+    }else{}
 
     
 }

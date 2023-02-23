@@ -12,7 +12,7 @@
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
-                    <th>Valoracion</th>
+                    <th>Imagenes</th>
                     <th>Sin Gluten</th>
                     <th>Categoria</th>
                     <th>Subcategorias</th>

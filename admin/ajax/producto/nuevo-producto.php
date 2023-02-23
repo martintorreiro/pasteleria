@@ -25,43 +25,41 @@ $(document).ready(function() {
     </div>
     <form id="nuevo-producto-form" method="post" enctype="multipart/form-data">
         <div class="form_body">
-            <div class="form_group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre">
-            </div>
-
-            <div class="form_group">
-                <label for="precio">Precio:</label>
-                <input class="decimal" type="text" id="precio" name="precio">
-            </div>
-
-            <div class="form_group">
-                <label for="stock">Stock:</label>
-                <input class="positive-integer" type="text" id="stock" name="stock">
-            </div>
-
-            <div class="form_group">
-                <label for="descripcion">Descripcion:</label>
-                <input type="text" id="descripcion" name="descripcion">
-            </div>
-
-            <div class="form_group">
+            <div class="form_inputs">
                 <div>
-                    <label for="gluten"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i>Libre de Gluten:</label>
-                    <input type="checkbox" id="gluten" name="gluten" value="true">
-                </div>
-            </div>
+                    <div class="form_group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre">
+                    </div>
 
-            <div class="form_group form_group__files">
-                <label for="imagenes">Cargar Imagenes</label>
-                <input type="file" id="imagenes" name="imagenes[]" required multiple accept=".jpg, .jpeg, .png">
-            </div>
+                    <div class="form_group">
+                        <label for="precio">Precio:</label>
+                        <input class="decimal" type="text" id="precio" name="precio">
+                    </div>
 
-            <div class="form_group">
-                <label for="categoria">Categoría: </label>
-                <select name="categoria" id="categoria">
-                    <option value="">--Seleccionar Categoria--</option>
-                    <?php
+                    <div class="form_group">
+                        <label for="stock">Stock:</label>
+                        <input class="positive-integer" type="text" id="stock" name="stock">
+                    </div>
+
+                    <div class="form_group">
+                        <label for="descripcion">Descripcion:</label>
+                        <input type="text" id="descripcion" name="descripcion">
+                    </div>
+
+                    <div class="form_group">
+                        <div>
+                            <label for="gluten"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i>Libre de
+                                Gluten:</label>
+                            <input type="checkbox" id="gluten" name="gluten" value="true">
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="categoria">Categoría: </label>
+                        <select name="categoria" id="categoria">
+                            <option value="">--Seleccionar Categoria--</option>
+                            <?php
 
                             if($resCat->num_rows){
                                 while($row = $resCat->fetch_assoc()){
@@ -76,14 +74,25 @@ $(document).ready(function() {
 
                         ?>
 
-                </select>
-            </div>
+                        </select>
+                    </div>
 
-            <div class="form_group">
-                <label for="subcategoria">Subcategoría: </label>
-                <select name="subcategoria" id="subcategoria" required>
-                    <option value="">--Seleccionar Categoria--</option>
-                </select>
+                    <div class="form_group">
+                        <label for="subcategoria">Subcategoría: </label>
+                        <select name="subcategoria" id="subcategoria" required>
+                            <option value="">--Seleccionar Categoria--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="imagenes_producto">
+                    <h4>Imagenes producto</h4>
+                    <div class="form_group form_group__files">
+                        <label for="imagenes">Cargar Imagenes</label>
+                        <input onChange="cargarPreview(this)" type="file" id="imagenes" name="imagenes[]" multiple
+                            accept=".jpg, .jpeg, .png">
+                    </div>
+                    <div id="contenedor-preview"></div>
+                </div>
             </div>
 
             <div class="controls">

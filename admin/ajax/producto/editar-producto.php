@@ -9,6 +9,9 @@ $resProducto = $db->query("SELECT p.*,s.nombre AS nombreSubcategoria,s.id AS idS
                             
 $resCat = $db->query("SELECT * FROM categoria");
 
+$resFotos = $db->query("SELECT * FROM fotos_producto WHERE id_producto = $id");
+
+
 
 if($rowP = $resProducto->fetch_assoc()){
     $idCat = $rowP["idCat"];
@@ -36,42 +39,46 @@ $(document).ready(function() {
     </div>
     <form id="editar-producto-form" action="servicio/producto/editar-producto.php" method="post">
         <div class="form_body">
-
-            <input type="hidden" name="id" value=<?php echo $id?>>
-
-            <div class="form_group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" value="<?php echo $rowP["nombre"]?>">
-            </div>
-
-            <div class="form_group">
-                <label for="precio">Precio:</label>
-                <input class="decimal" type="text" id="precio" name="precio" value=<?php echo $rowP["precio"]?>>
-            </div>
-
-            <div class="form_group">
-                <label for="stock">Stock:</label>
-                <input class="positive-integer" type="text" id="stock" name="stock" value=<?php echo $rowP["stock"]?>>
-            </div>
-
-            <div class="form_group">
-                <label for="descripcion">Descripcion:</label>
-                <input type="text" id="descripcion" name="descripcion" value="<?php echo $rowP["descripcion"]?>">
-            </div>
-
-            <div class="form_group">
+            <div class="form_inputs">
                 <div>
-                    <label for="gluten"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i>Libre de Gluten:</label>
-                    <input type="checkbox" id="gluten" name="gluten" value="true"
-                        <?php  if($rowP["gluten_free"]==1) echo "checked" ?>>
-                </div>
-            </div>
+                    <input type="hidden" name="id" value=<?php echo $id?>>
 
-            <div class="form_group">
-                <label for="categoria">Categoría: </label>
-                <select name="categoria" id="categoria">
+                    <div class="form_group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" value="<?php echo $rowP["nombre"]?>">
+                    </div>
 
-                    <?php
+                    <div class="form_group">
+                        <label for="precio">Precio:</label>
+                        <input class="decimal" type="text" id="precio" name="precio" value=<?php echo $rowP["precio"]?>>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="stock">Stock:</label>
+                        <input class="positive-integer" type="text" id="stock" name="stock"
+                            value=<?php echo $rowP["stock"]?>>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="descripcion">Descripcion:</label>
+                        <input type="text" id="descripcion" name="descripcion"
+                            value="<?php echo $rowP["descripcion"]?>">
+                    </div>
+
+                    <div class="form_group">
+                        <div>
+                            <label for="gluten"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i>Libre de
+                                Gluten:</label>
+                            <input type="checkbox" id="gluten" name="gluten" value="true"
+                                <?php  if($rowP["gluten_free"]==1) echo "checked" ?>>
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="categoria">Categoría: </label>
+                        <select name="categoria" id="categoria">
+
+                            <?php
 
                             if($resCat->num_rows){
                                 while($row = $resCat->fetch_assoc()){
@@ -89,14 +96,14 @@ $(document).ready(function() {
 
                         ?>
 
-                </select>
-            </div>
+                        </select>
+                    </div>
 
-            <div class="form_group">
-                <label for="subcategoria">Subcategoría: </label>
-                <select name="subcategoria" id="subcategoria">
+                    <div class="form_group">
+                        <label for="subcategoria">Subcategoría: </label>
+                        <select name="subcategoria" id="subcategoria">
 
-                    <?php
+                            <?php
 
                             if($resSub->num_rows){
                                 while($row = $resSub->fetch_assoc()){
@@ -114,9 +121,37 @@ $(document).ready(function() {
 
                         ?>
 
-                </select>
-            </div>
+                        </select>
+                    </div>
+                </div>
+                <div class="imagenes_producto">
+                    <h4>Imagenes producto</h4>
+                    <div class="form_group form_group__files">
+                        <label for="imagenes">Cargar Imagenes</label>
+                        <input onChange="cargarPreview(this)" type="file" id="imagenes" name="imagenes[]" multiple
+                            accept=".jpg, .jpeg, .png">
+                        <div id="contenedor-preview">
 
+                        </div>
+                    </div>
+
+                    <div class="imagenes_guardadas">
+                        <h5>Imagenes guardadas</h5>
+                        <div class="contenedor_imagenes">
+                            <?php
+
+                            while($rowFotos = $resFotos->fetch_assoc()){
+
+                                echo "<div><img src='fotos-producto/".$rowFotos["nombre"]."' alt='imagen guardada'></div>";
+
+                            }
+
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <div class="controls">
                 <button>Enviar</button>
                 <button id="cancelar" type="button">Cancelar</button>
