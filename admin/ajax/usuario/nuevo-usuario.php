@@ -2,7 +2,7 @@
     <div class="cabecera">
         <h2>Añadir Usuario</h2>
     </div>
-    <form id="nuevo-usuario-form" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
         <div class="form_body">
 
 

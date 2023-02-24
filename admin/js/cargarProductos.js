@@ -1,6 +1,16 @@
 const cargarProductos = () => {
   $.post(`servicio/producto/cargar-productos.php`, function (data) {
     $("#contenedor-productos").html(data);
-    manejarEditado("ajax/producto/editar-producto.php","servicio/producto/editar-producto.php",cargarProductos)
+    manejarFormulario(
+      {
+        guardar: "ajax/producto/nuevo-producto.php",
+        editar: "ajax/producto/editar-producto.php",
+      },
+      {
+        guardar: "servicio/producto/guardar-producto.php",
+        editar: "servicio/producto/editar-producto.php",
+      },
+      cargarProductos
+    );
   });
 };

@@ -1,5 +1,6 @@
 <?php 
-    include "header.php"
+    include "header.php";
+    include "db.php";
 ?>
 <main>
 
@@ -34,13 +35,19 @@
 </main>
 
 
-<!-- <script src="js/controles/controlesProductos.js"></script> -->
+
 <script src="js/cargarProductos.js"></script>
 <script>
-    
+cargarProductos();
 $(function() {
-    cargarProductos();
-    manejarGuardado("ajax/producto/nuevo-producto.php","servicio/producto/guardar-producto.php",cargarProductos)
+    manejarFormulario({
+            guardar: "ajax/producto/nuevo-producto.php",
+            editar: "ajax/producto/editar-producto.php"
+        }, {
+            guardar: "servicio/producto/guardar-producto.php",
+            editar: "servicio/producto/editar-producto.php"
+        },
+        cargarProductos)
 })
 </script>
 

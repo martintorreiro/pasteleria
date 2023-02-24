@@ -14,14 +14,18 @@
 </head>
 
 <body>
+
     <header class="flex jc-sb ai-center header">
-        <span>PANEL ADMINISTRACION</span>
+        <div><span>ADMINISTRACION</span></div>
         <nav>
             <ul class="flex">
                 <li> <a href="listar-productos.php">Productos</a></li>
                 <li> <a href="listar-categorias.php">Categorias</a></li>
                 <li> <a href="listar-posts.php">Posts</a></li>
                 <li> <a href="listar-usuarios.php">Usuarios</a></li>
+                <li> <a href="logout.php">Logout</a></li>
+                <span><?php echo $_SESSION['nombre_autor'];?></span>
+
             </ul>
         </nav>
     </header>

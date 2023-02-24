@@ -2,7 +2,7 @@
     <div class="cabecera">
         <h2>Añadir Categoria</h2>
     </div>
-    <form id="nueva-categoria-form" action="servicio/guardar-categoria.php" method="post">
+    <form id="formulario-manejado" action="servicio/guardar-categoria.php" method="post">
         <div class="form_body">
             <div class="form_group">
                 <label for="nombre">Nombre:</label>

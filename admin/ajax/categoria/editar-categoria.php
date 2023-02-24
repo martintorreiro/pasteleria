@@ -9,7 +9,7 @@ $row = $res->fetch_assoc();
     <div class="cabecera">
         <h2 class="marg-b-20">Editar Categoria</h2>
     </div>
-    <form id="editar-categoria-form">
+    <form id="formulario-manejado">
         <div class="form_body">
             <input type="hidden" name="id" value=<?php echo $id ?>>
             <div class="form_group">

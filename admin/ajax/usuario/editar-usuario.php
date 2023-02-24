@@ -13,7 +13,7 @@ if($row = $res->fetch_assoc()){
     <div class="cabecera">
         <h2>Editar Producto</h2>
     </div>
-    <form id="editar-usuario-form" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
         <div class="form_body">
 
             <input type="hidden" name="id" value=<?php echo $id?>>

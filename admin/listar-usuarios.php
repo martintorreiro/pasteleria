@@ -22,8 +22,8 @@ include "db.php";
             </tbody>
         </table>
 
-        <div class="controles" id="controles-usuario">
-            <button id="añadir-usuario">Añadir Usuario</button>
+        <div class="controles" id="controles">
+            <button id="añadir">Añadir Usuario</button>
         </div>
     </div>
 
@@ -31,11 +31,17 @@ include "db.php";
 </main>
 
 
-<script src="js/controles/controlesUsuarios.js"></script>
 <script src="js/cargarUsuarios.js"></script>
 <script>
 $(function() {
     cargarUsuarios();
+    manejarFormulario({
+        guardar: "ajax/usuario/nuevo-usuario.php",
+        editar: "ajax/usuario/editar-usuario.php"
+    }, {
+        guardar: "servicio/usuario/guardar-usuario.php",
+        editar: "servicio/usuario/editar-usuario.php"
+    }, cargarUsuarios);
 })
 </script>
 <?php

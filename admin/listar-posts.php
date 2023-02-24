@@ -1,5 +1,6 @@
 <?php 
-    include "header.php"
+    include "header.php";
+    include "db.php";
 ?>
 
 <main>
@@ -23,8 +24,8 @@
             </tbody>
         </table>
 
-        <div class="controles" id="controles-post">
-            <button id="añadir-post">Añadir Post</button>
+        <div class="controles" id="controles">
+            <button id="añadir">Añadir Post</button>
         </div>
     </div>
 
@@ -32,11 +33,17 @@
 </main>
 
 
-<script src="js/controles/controlesPosts.js"></script>
 <script src="js/cargarPosts.js"></script>
 <script>
 $(function() {
     cargarPosts();
+    manejarFormulario({
+        guardar: "ajax/post/nuevo-post.php",
+        editar: "ajax/post/editar-post.php"
+    }, {
+        guardar: "servicio/post/guardar-post.php",
+        editar: "servicio/post/editar-post.php"
+    }, cargarPosts)
 })
 </script>
 

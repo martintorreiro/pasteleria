@@ -11,11 +11,11 @@ if($rowPost = $resPost -> fetch_assoc()){
     <div class="cabecera">
         <h2>Editar Post</h2>
     </div>
-    <form id="editar-post-form" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
         <div class="form_body">
             <div class="form_inputs">
 
-            <input type="hidden" name="id" value=<?php echo $id?>>
+                <input type="hidden" name="id" value=<?php echo $id?>>
                 <div>
                     <div class="form_group">
                         <label for="titulo">Titulo:</label>

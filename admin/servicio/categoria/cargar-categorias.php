@@ -18,8 +18,8 @@ $resSub = $db->query($consultaSub);
 
             if($rowSub["id_categoria"]==$row["id"]){
                 $cadenaSub .= $separador."<td>".$rowSub["nombre"]."</td>
-                <td><button data-id=".$rowSub['id']." class='editarSub'><i class='fa-solid fa-pen-to-square'></i></button></td>
-                <td><button data-id=".$rowSub['id']." class='borrarSub'><i class='fa-solid fa-trash'></i></button></td>
+                <td><button data-id=".$rowSub['id']." class='editar2'><i class='fa-solid fa-pen-to-square'></i></button></td>
+                <td><button data-id=".$rowSub['id']." class='borrar2'><i class='fa-solid fa-trash'></i></button></td>
                 </tr>
                 ";
                 
@@ -33,9 +33,9 @@ $resSub = $db->query($consultaSub);
 
         $cadena .="<tr>
                 <td rowspan=".$countSub.">".$row['nombre']."</td>
-                <td rowspan=".$countSub."><button data-id=".$row['id']." class='editarCat'><i class='fa-solid fa-pen-to-square'></i></button></td>
+                <td rowspan=".$countSub."><button data-id=".$row['id']." class='editar'><i class='fa-solid fa-pen-to-square'></i></button></td>
                 <td rowspan=".$countSub."><button data-id=".$row['id']." class='borrarCat'><i class='fa-solid fa-trash'></i></button></td>
-                <td rowspan=".$countSub."><button data-id=".$row['id']." class='añadirSub'><i class='fa-regular fa-square-plus'></i></button></td>".$cadenaSub."
+                <td rowspan=".$countSub."><button data-id=".$row['id']." class='añadir2'><i class='fa-regular fa-square-plus'></i></button></td>".$cadenaSub."
             ";
             if ($separador=="") $cadena.="</tr>";
     };

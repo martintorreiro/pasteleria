@@ -7,7 +7,7 @@ if($_POST){
     $nombre = $_POST["nombre"];
     $apellidos = $_POST["apellidos"];
     $correo = $_POST["correo"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
     $admin = isset($_POST["admin"])?1:0;
     
     $consulta = "INSERT INTO usuario (nombre,apellidos,correo,password,admin) 
