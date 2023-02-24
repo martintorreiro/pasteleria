@@ -4,6 +4,7 @@ $resCat = $db->query("SELECT * FROM categoria");
 $resSub = $db->query("SELECT * FROM subcategoria");
 ?>
 
+
 <script type="text/javascript">
 $(document).ready(function() {
     $('.positive-integer').numeric({
@@ -23,7 +24,7 @@ $(document).ready(function() {
     <div class="cabecera">
         <h2>Añadir Producto</h2>
     </div>
-    <form id="nuevo-producto-form" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
         <div class="form_body">
             <div class="form_inputs">
                 <div>

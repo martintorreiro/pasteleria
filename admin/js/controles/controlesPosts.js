@@ -1,20 +1,3 @@
-const cargarPreview = (input) => {
-  $("#contenedor-preview").empty();
-  if (input.files && input.files[0]) {
-    for (let i = 0; i < input.files.length; i++) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        console.log("----->", e.target.result);
-        $("#contenedor-preview").append(
-          `<img src='${e.target.result}' alt='preview'>`
-        );
-      };
-
-      reader.readAsDataURL(input.files[i]);
-    }
-  }
-};
-
 const eventosPosts = () => {
   $("#añadir-post").click(function () {
     $("#controles-post").load("ajax/post/nuevo-post.php", () => {
@@ -27,13 +10,13 @@ const eventosPosts = () => {
         eventosPosts();
       });
 
-      $("#nuevo-usuario-form").submit(function (e) {
+      $("#nuevo-post-form").submit(function (e) {
         e.preventDefault();
-
-        const fdata = new FormData($("#nuevo-usuario-form").get(0));
+  
+        const fdata = new FormData($("#nuevo-post-form").get(0));
 
         $.ajax({
-          url: "servicio/usuario/guardar-usuario.php",
+          url: "servicio/post/guardar-post.php",
           type: "POST",
           data: fdata,
           processData: false,
@@ -42,12 +25,12 @@ const eventosPosts = () => {
             //something before send
           },
           success: function (data) {
-            console.log("usuario creado", data);
+            cargarPosts();
             /* const respuesta = JSON.parse(data);
   
               if (respuesta.estado === "ok") {
                 console.log("----->exito", respuesta.mensaje);
-                cargarProductos();
+                
                 $("#nuevo-producto-form input").each(function () {
                   this.value = "";
                 });
@@ -61,26 +44,27 @@ const eventosPosts = () => {
   });
 
   $(".editar").click(function () {
-    $("#controles-usuario").addClass("modal");
-    const idProducto = $(this).attr("data-id");
-    $("#controles-usuario").load(
-      `ajax/usuario/editar-usuario.php?id=${idProducto}`,
+    $("#controles-post").addClass("modal");
+    const idPost = $(this).attr("data-id");
+    $("#controles-post").load(
+      `ajax/post/editar-post.php?id=${idPost}`,
       () => {
         $("#cancelar").click(() => {
-          $("#controles-usuario").removeClass("modal");
-          $("#controles-usuario").html(
-            "<button id='añadir-usuario'>Añadir Usuario</button>"
+          $("#controles-post").removeClass("modal");
+          $("#controles-post").html(
+            "<button id='añadir-post'>Añadir Post</button>"
           );
-          eventosUsuarios();
+          eventosPosts();
         });
 
-        $("#editar-usuario-form").submit(function (e) {
+        $("#editar-post-form").submit(function (e) {
+          
           e.preventDefault();
 
-          const editData = new FormData($("#editar-usuario-form").get(0));
+          const editData = new FormData($("#editar-post-form").get(0));
 
           $.ajax({
-            url: "servicio/usuario/editar-usuario.php",
+            url: "servicio/post/editar-post.php",
             type: "POST",
             data: editData,
             processData: false,
@@ -89,12 +73,13 @@ const eventosPosts = () => {
               //something before send
             },
             success: function (data) {
+              
               if (data) {
-                $("#controles-usuario").removeClass("modal");
-                $("#controles-usuario").html(
-                  "<button id='añadir-usuario'>Añadir Usuario</button>"
+                $("#controles-post").removeClass("modal");
+                $("#controles-post").html(
+                  "<button id='añadir-post'>Añadir Post</button>"
                 );
-                cargarUsuarios();
+                cargarPosts();
               } else {
               }
             },

@@ -25,8 +25,8 @@
             </tbody>
         </table>
 
-        <div class="controles" id="controles-productos">
-            <button id="añadir-producto">Añadir Producto</button>
+        <div class="controles" id="controles">
+            <button id="añadir">Añadir Producto</button>
         </div>
     </div>
 
@@ -34,11 +34,13 @@
 </main>
 
 
-<script src="js/controles/controlesProductos.js"></script>
+<!-- <script src="js/controles/controlesProductos.js"></script> -->
 <script src="js/cargarProductos.js"></script>
 <script>
+    
 $(function() {
     cargarProductos();
+    manejarGuardado("ajax/producto/nuevo-producto.php","servicio/producto/guardar-producto.php",cargarProductos)
 })
 </script>
 

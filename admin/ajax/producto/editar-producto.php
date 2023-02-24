@@ -18,7 +18,9 @@ if($rowP = $resProducto->fetch_assoc()){
     $resSub = $db->query("SELECT * FROM subcategoria WHERE id_categoria=$idCat");
 ?>
 
+
 <script type="text/javascript">
+    
 $(document).ready(function() {
     $('.positive-integer').numeric({
         negative: false,

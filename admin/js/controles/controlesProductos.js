@@ -1,20 +1,3 @@
-const cargarPreview = (input) => {
-  $("#contenedor-preview").empty();
-  if (input.files && input.files[0]) {
-    for (let i = 0; i < input.files.length; i++) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        console.log("----->", e.target.result);
-        $("#contenedor-preview").append(
-          `<img src='${e.target.result}' alt='preview'>`
-        );
-      };
-
-      reader.readAsDataURL(input.files[i]);
-    }
-  }
-};
-
 const eventosProductos = () => {
   $("#añadir-producto").click(function () {
     $("#controles-productos").load("ajax/producto/nuevo-producto.php", () => {
