@@ -57,6 +57,7 @@ const manejarFormulario = (form, servicio, callback) => {
     const controlActual = $("#controles").html();
     $("#controles").addClass("modal");
     const idProducto = $(this).attr("data-id");
+
     $("#controles").load(`${form.editar}?id=${idProducto}`, () => {
       $("#cancelar").click(() => {
         $("#controles").removeClass("modal");
@@ -91,9 +92,8 @@ const manejarFormulario = (form, servicio, callback) => {
           success: function (data) {
             $("#controles").removeClass("modal");
             if (data) {
-              $("#controles").html(
-                "<button id='añadir'>Añadir Producto</button>"
-              );
+              console.log(data);
+              $("#controles").html(controlActual);
               callback();
             } else {
             }
@@ -196,9 +196,7 @@ const manejarFormulario = (form, servicio, callback) => {
           success: function (data) {
             $("#controles").removeClass("modal");
             if (data) {
-              $("#controles").html(
-                "<button id='añadir'>Añadir Producto</button>"
-              );
+              $("#controles").html(controlActual);
               callback();
             } else {
             }

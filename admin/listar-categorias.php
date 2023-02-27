@@ -1,6 +1,6 @@
 <?php
-include "header.php";
 include "db.php";
+include "header.php";
 
 ?>
 <main>
@@ -18,7 +18,7 @@ include "db.php";
                     <th>Borrar</th>
                 </tr>
             </thead>
-            <tbody id="contenedor-categorias">
+            <tbody id="body-tabla">
 
             </tbody>
         </table>

@@ -65,8 +65,16 @@ if($rowPost = $resPost -> fetch_assoc()){
                         <label for="imagenes">Cargar Imagenes</label>
                         <input onChange="cargarPreview(this)" type="file" id="imagenes" name="imagenes[]" multiple
                             accept=".jpg, .jpeg, .png">
+                        <div id="contenedor-preview"></div>
                     </div>
-                    <div id="contenedor-preview"></div>
+
+                    <div class="imagenes_guardadas">
+                        <h5>Imagenes guardadas</h5>
+                        <div class="contenedor_imagenes">
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -77,6 +85,10 @@ if($rowPost = $resPost -> fetch_assoc()){
         </div>
     </form>
 </div>
+
+<script>
+cargarFotosForm(<?php echo $id ?>, "post")
+</script>
 
 <?php
 

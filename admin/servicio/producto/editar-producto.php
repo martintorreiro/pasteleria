@@ -13,7 +13,6 @@ if($_POST){
     $subcategoria = $_POST["subcategoria"];
     $imagenes = $_FILES["imagenes"];
 
-
     $consulta = "UPDATE producto SET nombre = '$nombre', precio = '$precio',stock = '$stock',
     descripcion = '$descripcion',gluten_free = '$gluten',id_subcategoria = '$subcategoria'
     WHERE id = $id";
@@ -55,7 +54,7 @@ if($_POST){
         }
         echo json_encode($respuesta) ;
     }else if($res){
-        
+        echo "sin imagen";
     }
 
 

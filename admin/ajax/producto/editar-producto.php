@@ -20,7 +20,6 @@ if($rowP = $resProducto->fetch_assoc()){
 
 
 <script type="text/javascript">
-    
 $(document).ready(function() {
     $('.positive-integer').numeric({
         negative: false,
@@ -39,7 +38,7 @@ $(document).ready(function() {
     <div class="cabecera">
         <h2>Editar Producto</h2>
     </div>
-    <form id="editar-producto-form" action="servicio/producto/editar-producto.php" method="post">
+    <form id="formulario-manejado" enctype="multipart/form-data" method="post">
         <div class="form_body">
             <div class="form_inputs">
                 <div>
@@ -140,15 +139,7 @@ $(document).ready(function() {
                     <div class="imagenes_guardadas">
                         <h5>Imagenes guardadas</h5>
                         <div class="contenedor_imagenes">
-                            <?php
 
-                            while($rowFotos = $resFotos->fetch_assoc()){
-
-                                echo "<div><img src='fotos-producto/".$rowFotos["nombre"]."' alt='imagen guardada'></div>";
-
-                            }
-
-                            ?>
                         </div>
                     </div>
                 </div>
@@ -161,6 +152,10 @@ $(document).ready(function() {
         </div>
     </form>
 </div>
+
+<script>
+cargarFotosForm(<?php echo $id?>, "producto")
+</script>
 <?php
     }
 ?>

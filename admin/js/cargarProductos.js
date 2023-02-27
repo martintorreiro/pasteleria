@@ -1,6 +1,6 @@
 const cargarProductos = () => {
   $.post(`servicio/producto/cargar-productos.php`, function (data) {
-    $("#contenedor-productos").html(data);
+    $("#body-tabla").html(data);
     manejarFormulario(
       {
         guardar: "ajax/producto/nuevo-producto.php",

@@ -8,6 +8,8 @@
     <script type="text/javascript" src="js/jquery.numeric.js"></script>
     <script src="js/funciones/cargarPreviews.js"></script>
     <script src="js/funciones/controlesFormularios.js"></script>
+    <script src="js/funciones/borrarFoto.js"></script>
+    <script src="js/funciones/cargarFotosForm.js"></script>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>Bakerix</title>
@@ -25,7 +27,6 @@
                 <li> <a href="listar-usuarios.php">Usuarios</a></li>
                 <li> <a href="logout.php">Logout</a></li>
                 <span><?php echo $_SESSION['nombre_autor'];?></span>
-
             </ul>
         </nav>
     </header>

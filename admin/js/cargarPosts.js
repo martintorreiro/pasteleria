@@ -1,6 +1,6 @@
 const cargarPosts = () => {
   $.post(`servicio/post/cargar-posts.php`, function (data) {
-    $("#contenedor-posts").html(data);
+    $("#body-tabla").html(data);
     manejarFormulario(
       {
         guardar: "ajax/post/nuevo-post.php",

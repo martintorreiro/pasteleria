@@ -335,7 +335,18 @@ td {
 }
 
 .formulario_estandar .imagenes_guardadas .contenedor_imagenes > div {
+  position: relative;
   width: 30%;
+}
+
+.formulario_estandar
+  .imagenes_guardadas
+  .contenedor_imagenes
+  > div
+  .borrar-imagen {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .formulario_estandar .imagenes_guardadas .contenedor_imagenes > div img {
@@ -350,6 +361,7 @@ td {
 #contenedor-preview img {
   width: 30%;
 }
+
 /* ------------------------PRODUCTO---------------------------- */
 
 .formulario_estandar .imagenes_producto h4 {

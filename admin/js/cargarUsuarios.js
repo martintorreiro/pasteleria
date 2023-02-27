@@ -1,6 +1,6 @@
 const cargarUsuarios = () => {
   $.post(`servicio/usuario/cargar-usuario.php`, function (data) {
-    $("#contenedor-usuarios").html(data);
+    $("#body-tabla").html(data);
     manejarFormulario(
       {
         guardar: "ajax/usuario/nuevo-usuario.php",

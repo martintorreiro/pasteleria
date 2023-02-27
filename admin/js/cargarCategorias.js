@@ -1,6 +1,6 @@
 const cargarCategorias = () => {
   $.post(`servicio/categoria/cargar-categorias.php`, function (data) {
-    $("#contenedor-categorias").html(data);
+    $("#body-tabla").html(data);
     manejarFormulario(
       {
         guardar: "ajax/categoria/nueva-categoria.php",
