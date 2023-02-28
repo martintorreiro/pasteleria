@@ -21,7 +21,7 @@ $res = $db->query($consulta);
                 <td>".$row['nombreCategoria']."</td>
                 <td>".$row['nombreSubcategoria']."</td>
                 <td ><button data-id=".$row['id']." class='editar'><i class='fa-solid fa-pen-to-square'></i></button></td>
-                <td ><button data-id=".$row['id']." class='borrar'><i class='fa-solid fa-trash'></i></button></td>
+                <td ><button data-id=".$row['id']." data-tabla='producto' class='borrar'><i class='fa-solid fa-trash'></i></button></td>
                 </tr>
                 ";
     };

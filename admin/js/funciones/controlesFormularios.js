@@ -1,4 +1,41 @@
 const manejarFormulario = (form, servicio, callback) => {
+  $(".borrar").mouseup(function (e) {
+    $("#confirmacion-modal").remove();
+    $id = $(this).attr("data-id");
+    $tabla = $(this).attr("data-tabla");
+    console.log($id, $tabla);
+    $ejeY = e.pageY;
+    $ejeX = e.pageX;
+
+    $("main").append(
+      "<div id=confirmacion-modal><p>Esta seguro de que desea borrar esta fila?</p><button id='confirmar-borrado'>Confirmar</button></div>"
+    );
+    $("#confirmacion-modal")
+      .css("width", "200px")
+      .css("top", $ejeY)
+      .css("left", $ejeX - 200);
+
+    $("#confirmar-borrado").click(function () {
+      $.post(
+        "servicio/borrar-tabla.php",
+        { id: $id, tabla: $tabla },
+        function (data) {
+          console.log(data);
+          $("#confirmacion-modal").remove();
+          callback();
+        }
+      );
+    });
+
+    $(document).click(function (e) {
+      console.log(e);
+      var obj = $("#confirmacion-modal");
+      if (!obj.is(event.target) && !obj.has(event.target).length) {
+        $("#confirmacion-modal").remove();
+      }
+    });
+  });
+
   $("#añadir").click(function () {
     const controlActual = $("#controles").html();
     $("#controles").load(form.guardar, () => {
