@@ -1,5 +1,5 @@
 const manejarFormulario = (form, servicio, callback) => {
-  $(".borrar").mouseup(function (e) {
+  $(".borrar").click(function (e) {
     $("#confirmacion-modal").remove();
     $id = $(this).attr("data-id");
     $tabla = $(this).attr("data-tabla");
@@ -27,13 +27,13 @@ const manejarFormulario = (form, servicio, callback) => {
       );
     });
 
-    $(document).click(function (e) {
+    /*  $(document).click(function (e) {
       console.log(e);
       var obj = $("#confirmacion-modal");
       if (!obj.is(event.target) && !obj.has(event.target).length) {
         $("#confirmacion-modal").remove();
       }
-    });
+    }); */
   });
 
   $("#añadir").click(function () {

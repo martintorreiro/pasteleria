@@ -1,12 +1,22 @@
 <?php
     include "header.php"
 ?>
+
 <main>
-    <div class="slider-container">
+    <div class="slider">
         <div class="owl-carousel owl-theme">
-            <div class="item" style="background-image:imagenes/slider/slide-01.jpg"></div>
-            <div class="item" style="background-image:imagenes/slider/slide-02.jpg"></div>
-            <div class="item" style="background-image:imagenes/slider/slide-03.jpg"></div>
+            <div class="item">
+                <img src="imagenes/slider/slide-01.jpg" alt="">
+                <div class="texto1-item">+3(800) 2345-6789</div>
+                <div class="texto2-item">Order Online. Hours: 8AM -11PM </div>
+                <div><a href="#">SEE ALL PRODUCTS</a></div>
+            </div>
+            <div class="item">
+                <img src="imagenes/slider/slide-02.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagenes/slider/slide-03.jpg" alt="">
+            </div>
         </div>
     </div>
 
