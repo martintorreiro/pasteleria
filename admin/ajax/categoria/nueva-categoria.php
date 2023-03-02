@@ -9,6 +9,16 @@
                 <input type="text" id="nombre" name="nombre">
             </div>
 
+            <div class="imagenes_producto">
+                <h4>Imagenes producto</h4>
+                <div class="form_group form_group__files">
+                    <label for="imagen">Cargar Imagenes</label>
+                    <input onChange="cargarPreview(this)" type="file" id="imagen" name="imagen"
+                        accept=".jpg, .jpeg, .png">
+                </div>
+                <div id="contenedor-preview"></div>
+            </div>
+
             <div class="controls">
                 <button>Enviar</button>
                 <button id="cancelar" type="button">Cancelar</button>

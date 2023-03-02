@@ -72,6 +72,7 @@ const manejarFormulario = (form, servicio, callback) => {
             //something before send
           },
           success: function (data) {
+            console.log("--->", data);
             callback();
             /* const respuesta = JSON.parse(data);
       
