@@ -32,7 +32,7 @@ if($_POST){
 
             if ($tmpFilePath != ""){
 
-                $newFilePath = "../../fotos-producto/" . $imagenes['name'][$i];
+                $newFilePath = "../../../public/fotos-producto/" . $imagenes['name'][$i];
 
                 if(move_uploaded_file($tmpFilePath, $newFilePath)){
 

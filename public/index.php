@@ -50,14 +50,29 @@
                                   
                                     $producto .= "<li class='procucto'>
                                                     <div>
+                                                    <a href='producto.php?id='".$rowProd["id"]."'>
                                                         <img src='fotos-producto/".$rowProd["imagen"]."'>
-                                                       
+                                                    </a>
                                                     </div>
                                                     <div class='info-producto flex column'>
-                                                        <span>".$rowProd["nombre"]."</span>
-                                                        <span>$ ".$rowProd["precio"]."</span>
+
+                                                        <div class='puntuacion'>
+                                                            <i class='fa-solid fa-star'></i>
+                                                            <i class='fa-solid fa-star'></i>
+                                                            <i class='fa-solid fa-star'></i>
+                                                            <i class='fa-solid fa-star'></i>
+                                                            <i class='fa-solid fa-star'></i>     
+                                                        </div>
+                                                    
+                                                        <span class='titulo'> 
+                                                            <a href='producto.php?id='".$rowProd["id"]."'>".$rowProd["nombre"]." </a>
+                                                        </span>
+                                                        <span class='precio'>$".$rowProd["precio"]."</span>
                                                         <div>
-                                                            <button>ADD TO CART</button>
+                                                            <button>ADD TO CART</button> 
+                                                            <div>
+                                                            <i class='fa-solid fa-heart'></i></div>
+
                                                         </div>
                                                     </div>
                             
@@ -71,12 +86,14 @@
     
                             echo "<li class='categoria flex row'>
                                     <div class='imagen-categoria'>
+                                    <a href='categoria.php?id='".$row['imagen']."'>
                                         <img src='fotos-categoria/".$row['imagen']."' alt='imagen categoria'>
                                         <div class='categoria-info'>
                                             <h3>".$row["nombre"]."</h3>
                                            
                                             <button>SEE ALL PRODUCTS ></button>
                                         </div>
+                                    </a>
                                     </div>
 
                                     $producto
