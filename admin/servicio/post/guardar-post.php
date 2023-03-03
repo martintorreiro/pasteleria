@@ -15,6 +15,8 @@ if($_POST){
                 VALUES ('$titulo','$texto','$fecha','$id_usuario')";
     $res = $db->query($consulta);   
     
+    echo $consulta;
+
     $respuesta = new stdClass();
 
     $idPost = $db->insert_id;
