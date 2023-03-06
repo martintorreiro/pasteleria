@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.numeric.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/index.js"></script>
     <title>Document</title>

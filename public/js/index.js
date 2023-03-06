@@ -39,23 +39,30 @@ $(function () {
   });
 });
 
-
+$(function () {
+  var owl4 = $(".owl-carousel.pagina-producto");
+  owl4.owlCarousel({
+    items: 1,
+    loop: true,
+    URLhashListener: true,
+    nav: true,
+    dots: false,
+  });
+});
 
 /* -----------CATEGORIA aside---------------- */
 
-
-$(document).ready(function(){
-  $(".nav-categorias > li > a").hover(function(){
+$(document).ready(function () {
+  $(".nav-categorias > li > a").hover(function () {
+    $(".subcategorias").css({ display: "none" });
     $item = $(this).siblings();
-    $item.css({"display": "block"});
+    $item.css({ display: "block" });
     $(".nav-categorias").mouseleave(function () {
-      $item.css({"display": "none"});
-    })
-  })
+      $(".subcategorias").css({ display: "none" });
+    });
+  });
 
-  $(".filtro-item > h4").click(function(){
-    
-    $(this).siblings().toggleClass("cerrar")
-  })
+  $(".filtro-item > h4").click(function () {
+    $(this).siblings().toggleClass("cerrar");
+  });
 });
-

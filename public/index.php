@@ -52,7 +52,7 @@
 
                                 $producto .= "<div class='item'>
                                 <div class=imagen-producto> 
-                                <a href='producto.php?id=".$rowProd["id"]."'>
+                                <a href='producto.php?prod=".$rowProd["id"]."'>
                                     <img src='fotos-producto/".$rowProd["imagen"]."'>
                                     <span>TOP RATED</span>
                                 </a>
@@ -69,7 +69,7 @@
                                     </div>
                                 
                                     <span class='titulo'> 
-                                        <a href='producto.php?id='".$rowProd["id"]."'>".$rowProd["nombre"]." </a>
+                                        <a href='producto.php?prod='".$rowProd["id"]."'>".$rowProd["nombre"]." </a>
                                     </span>
                                     <span class='precio'>$".$rowProd["precio"]."</span>
                                     <div class='acciones'>
@@ -90,7 +90,7 @@
     
                             echo "<li class='categoria flex row'>
                                     <div class='imagen-categoria'>
-                                    <a href='categoria.php?id='".$row['imagen']."'>
+                                    <a href='categoria.php?cat=$idCat'>
                                         <img src='fotos-categoria/".$row['imagen']."' alt='imagen categoria'>
                                         <div class='categoria-info'>
                                             <h3>".$row["nombre"]."</h3>
