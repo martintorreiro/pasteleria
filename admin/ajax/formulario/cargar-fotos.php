@@ -7,7 +7,7 @@ $result = $db->query($sql);
 $cadena="";
 while ($fila = $result->fetch_assoc()){
     $cadena .= "<div class='imagen-guardada'>
-                    <img src='fotos-producto/".$fila["nombre"]."' alt='imagen guardada'>
+                    <img src='../public/fotos-".$tabla."/".$fila["nombre"]."' alt='imagen guardada'>
                     <button type='button' onClick='borrarFoto(".$fila['id'].",$id,`$tabla`)' class='borrar-imagen'>x</button>
                 </div>";
 }

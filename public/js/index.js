@@ -22,8 +22,8 @@ $(function () {
 });
 
 $(function () {
-  var owl = $(".owl-carousel.carousel-productos");
-  owl.owlCarousel({
+  var owl2 = $(".owl-carousel.carousel-productos");
+  owl2.owlCarousel({
     items: 3,
     nav: true,
     dots: false,
@@ -31,10 +31,31 @@ $(function () {
 });
 
 $(function () {
-  var owl = $(".owl-carousel.carousel-post");
-  owl.owlCarousel({
+  var owl3 = $(".owl-carousel.carousel-post");
+  owl3.owlCarousel({
     items: 3,
     nav: true,
     dots: false,
   });
 });
+
+
+
+/* -----------CATEGORIA aside---------------- */
+
+
+$(document).ready(function(){
+  $(".nav-categorias > li > a").hover(function(){
+    $item = $(this).siblings();
+    $item.css({"display": "block"});
+    $(".nav-categorias").mouseleave(function () {
+      $item.css({"display": "none"});
+    })
+  })
+
+  $(".filtro-item > h4").click(function(){
+    
+    $(this).siblings().toggleClass("cerrar")
+  })
+});
+

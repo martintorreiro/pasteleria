@@ -56,10 +56,10 @@
                             $subcategorias ="";
                             if($resSub->num_rows > 0){
                                 
-                                $subcategorias .= "<ul class='subcategorias ocultar'>";
+                                $subcategorias .= "<ul class='subcategorias ocultar borde-gris'>";
                                 
                                 while($rowSub= $resSub->fetch_assoc()){
-                                    $subcategorias .= "<li><a href='categoria.php?id=".$rowSub["id"]."'>".$rowSub["nombre"]."</a></li>";
+                                    $subcategorias .= "<li class='flex ai-center marg-t-10'><a class='color-negro-letra mayu font-s-12' href='categoria.php?id=".$rowSub["id"]."'>".$rowSub["nombre"]."</a></li>";
                                 }
                                 $subcategorias .= "</ul>";
                             }

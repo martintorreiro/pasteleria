@@ -124,6 +124,7 @@
             $consultaPost = "SELECT p.*, f.imagen, CONCAT(u.nombre,' ',u.apellidos) AS autor FROM post p LEFT JOIN usuario u ON p.id_usuario = u.id
             LEFT JOIN (SELECT nombre AS imagen,id_post FROM fotos_post GROUP BY id_post) f 
             ON f.id_post = p.id";
+    
             $resPost = $db->query($consultaPost);
 
             while($rowPost = $resPost->fetch_assoc()){
@@ -131,7 +132,11 @@
 
                 echo "<div class='item'>
                         <div class='item-post padd-0-20 marg-t-20'>
-                            <div class='item-post-img'><a href='noticia.php?id=".$rowPost['id']."'><img src='fotos-post/".$rowPost['imagen']."' alt='imagen post' ></a></div>
+                            <div class='item-post-img'>
+                                <a href='noticia.php?id=".$rowPost['id']."'>
+                                    <img src='fotos-post/".$rowPost['imagen']."' alt='imagen post' >
+                                </a>
+                            </div>
                             <div class='post-data marg-t-10 mayu'>BY <span>".$rowPost['autor']."</span> - <span>".$rowPost['fecha']."</span></div>
                             <h4 class='marg-t-10'><a href='noticia.php?id=".$rowPost['id']."'>".$rowPost['titulo']."</a></h4>
                             <p class='marg-t-10'>".$txt."</p>
@@ -147,7 +152,7 @@
     </div>
 
     <div class="contacto marg-t-60 marg-b-60">
-        <ul class="flex   w-1024 centrado">
+        <ul class="flex jc-sb  w-1024 centrado">
             <li>
                 <i class="fa-solid fa-phone"></i>
                 <h5>+3(800) 2345-6789</h5>
