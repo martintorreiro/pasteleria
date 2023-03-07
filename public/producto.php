@@ -63,6 +63,13 @@ $(document).ready(function() {
 
                 <!-- hacer parte review -->
                 <div class="reviews marg-b-15">
+
+                    <div class="container-principal">
+                        <div class="fondo"></div>
+                        <div class="container-estrellas"><i class='fa-solid fa-star color-gris-letra'></i><i
+                                class='fa-solid fa-star color-gris-letra'></i></div>
+                    </div>
+
                     <span><a class="color-negro-letra font-s-14 hover-color-naranja"
                             href=""><?php echo $resCom->num_rows ?> review</a></span>
                     <span class="marg-l-15"><a class="color-negro-letra font-s-14 hover-color-naranja" href="">Add Your
@@ -77,8 +84,7 @@ $(document).ready(function() {
                     <form action="">
                         <div class="padd-30-0">
                             <input type="text" value="1" class="positive-integer cantidad">
-                            <button
-                            type="button"
+                            <button type="button"
                                 class='padd-11-20 marg-l-15 font-s-16 bold bg-color-naranja color-blanco hover-bg-negro'>ADD
                                 TO
                                 CART</button>
@@ -122,10 +128,10 @@ $(document).ready(function() {
 
 <script src="js/detalles-producto.js"></script>
 <script>
-    $(function(){
-        cargarReviews(<?php echo $idProd; ?>);
-    })
-    
+$(function() {
+    cargarReviews(<?php echo $idProd; ?>, '<?php echo $nombreP; ?>');
+
+})
 </script>
 
 

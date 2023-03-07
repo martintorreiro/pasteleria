@@ -158,6 +158,9 @@ button:hover {
 .hover-bg-negro:hover {
   background-color: var(--negro-principal);
 }
+.hover-bg-naranja:hover {
+  background-color: var(--naranja-primario);
+}
 .hover-color-negro:hover {
   cursor: pointer;
   color: var(--negro-principal);
@@ -168,14 +171,14 @@ button:hover {
 }
 
 .borde-gris {
-  border: 1px solid #ebebeb;
+  border: 1px solid var(--gris-secundario);
 }
 .border-l-gris {
   border-left: 1px solid var(--gris-principal);
 }
 
 .border-b-gris {
-  border-bottom: 1px solid var(--gris-principal);
+  border-bottom: 1px solid var(--gris-secundario);
 }
 
 .font-s-12 {
@@ -262,6 +265,9 @@ button:hover {
 
 .marg-r-10 {
   margin-right: 10px;
+}
+.marg-r-20 {
+  margin-right: 20px;
 }
 .marg-r-30 {
   margin-right: 30px;
@@ -957,4 +963,59 @@ footer {
   height: 40px;
   width: 60px;
   text-align: center;
+}
+
+input.estrella {
+  display: none;
+}
+
+.review-form input {
+  font-size: 13px;
+  height: 42px;
+  line-height: 1.5625;
+  padding: 0 15px;
+  vertical-align: baseline;
+  width: 100%;
+  border: 1px solid var(--gris-secundario);
+  outline: none;
+}
+
+.review-form textarea {
+  font-size: 13px;
+  height: 200px;
+  line-height: 1.5625;
+  padding: 0 15px;
+  vertical-align: baseline;
+  width: 100%;
+  resize: none;
+  border: 1px solid var(--gris-secundario);
+  outline: none;
+}
+
+.contenedor-estrellas label:hover {
+  cursor: pointer;
+}
+
+.contenedor-estrellas label i.estrella-on {
+  color: var(--naranja-primario);
+}
+
+.contenedor-estrellas label i.estrella-check {
+  color: var(--naranja-primario);
+}
+
+/* ---------------prueba------------- */
+
+.container-principal {
+  width: min-content;
+  background-color: lightsalmon;
+}
+
+.fondo {
+  width: 50%;
+}
+
+.container-estrellas {
+  display: flex;
+  width: min-content;
 }
