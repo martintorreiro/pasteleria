@@ -78,6 +78,7 @@ $(document).ready(function() {
                         <div class="padd-30-0">
                             <input type="text" value="1" class="positive-integer cantidad">
                             <button
+                            type="button"
                                 class='padd-11-20 marg-l-15 font-s-16 bold bg-color-naranja color-blanco hover-bg-negro'>ADD
                                 TO
                                 CART</button>
@@ -110,7 +111,7 @@ $(document).ready(function() {
                 </h3>
             </nav>
 
-            <div class="details-cotent padd-20-0">
+            <div id="details-content" class=" padd-20-0">
                 <?php echo $descripcion; ?>
             </div>
 
@@ -118,6 +119,14 @@ $(document).ready(function() {
     </div>
 
 </main>
+
+<script src="js/detalles-producto.js"></script>
+<script>
+    $(function(){
+        cargarReviews(<?php echo $idProd; ?>);
+    })
+    
+</script>
 
 
 
