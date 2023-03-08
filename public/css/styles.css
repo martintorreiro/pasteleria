@@ -886,8 +886,10 @@ footer {
 
 .grid-aside .filtro-busqueda .filtro-item .cerrar {
   overflow: hidden;
-  transform: scaleY(0);
-  transform-origin: top;
+  height: 0;
+  /* transform: scaleY(0);
+  transform-origin: top;*/
+  transition: height 0.5s ease; 
 }
 
 .grid-main {
@@ -1004,18 +1006,21 @@ input.estrella {
   color: var(--naranja-primario);
 }
 
+
+/* ------funcion pinta estrellas------- */
+
+.stars-container{
+  position: relative;
+  margin-right: 10px;
+  width: max-content;
+}
+.stars-container>div:last-child{
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+
 /* ---------------prueba------------- */
 
-.container-principal {
-  width: min-content;
-  background-color: lightsalmon;
-}
 
-.fondo {
-  width: 50%;
-}
-
-.container-estrellas {
-  display: flex;
-  width: min-content;
-}

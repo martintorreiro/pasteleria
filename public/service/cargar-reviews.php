@@ -1,5 +1,6 @@
 <?php
     include "../db.php";
+    include "../includes/estrellas.php";
 
     $idProd = $_GET["idProd"];
     $nombreP = $_GET["nombreP"];
@@ -7,7 +8,7 @@
     $consulta = "SELECT * FROM comentarios_producto WHERE id_producto=$idProd";
     $res = $db->query($consulta);
 
-    $consultaValoracion = "SELECT (AVG(nota_calidad) + AVG(nota_valor) + AVG(nota_precio))/3 FROM comentarios_producto WHERE id_producto=$idProd"
+    $consultaValoracion = "SELECT ((AVG(nota_calidad) + AVG(nota_valor) + AVG(nota_precio))/3)*20 FROM comentarios_producto WHERE id_producto=$idProd"
 
  
 ?>
@@ -20,44 +21,11 @@
                 
                 while($row = $res->fetch_assoc()){
 
-                    $valueStars = "<div class='flex marg-t-10'>";
-
-                    for ($i=1; $i <= 5; $i++) { 
-                        if($i <= $row["nota_valor"]){
-                            $valueStars .= "<i class='fa-solid fa-star color-naranja'></i>";
-                        }else{
-                            $valueStars .= "<i class='fa-solid fa-star color-gris-letra'></i>";
-                        }
-                    }
-                    $valueStars .= "</div>";
-
-                    $qualityStars = "<div class='flex marg-t-10'>";
-
-                    for ($i=1; $i <= 5; $i++) { 
-                        if($i <= $row["nota_valor"]){
-                            $qualityStars .= "<i class='fa-solid fa-star color-naranja'></i>";
-                        }else{
-                            $qualityStars .= "<i class='fa-solid fa-star color-gris-letra'></i>";
-                        }
-                    }
-                    $qualityStars .= "</div>";
-
-                    $priceStars = "<div class='flex marg-t-10'>";
-
-                    for ($i=1; $i <= 5; $i++) { 
-                        if($i <= $row["nota_valor"]){
-                            $priceStars .= "<i class='fa-solid fa-star color-naranja'></i>";
-                        }else{
-                            $priceStars .= "<i class='fa-solid fa-star color-gris-letra'></i>";
-                        }
-                    }
-                    $priceStars .= "</div>";
-
                     echo "<li class='flex column border-b-gris padd-20-0'>
                             <span class='bold'>".$row["resumen"]."</span>
-                            <div>
-                                ".$valueStars.$qualityStars.$priceStars."
-                            </div>
+                            ".pintaEstrellas(5,$row["nota_valor"])."
+                            ".pintaEstrellas(5,$row["nota_calidad"])."
+                            ".pintaEstrellas(5,$row["nota_precio"])."
                             <p class='marg-t-10'>".$row["comentario"]."</p>
                             <div class='marg-t-10'><p>Review by <span class='mayu bold'>".$row["nombre"]."</span>. Posted on ".$row["fecha"]."</p></div>
                         </li>";
@@ -75,7 +43,6 @@
                 <div class="flex marg-t-20">
                     <span class=" marg-r-20">Value</span>
                     <div id="grupo-v" class="contenedor-estrellas">
-
 
                         <label data-position="1" data-grupo="v" for="v1"><i
                                 class="fa-solid fa-star color-gris-letra"></i></label>

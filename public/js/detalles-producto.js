@@ -10,6 +10,7 @@ function cargarReviews(idProd, nombreP) {
   });
 }
 
+
 function gestionEstrellas() {
   $(".contenedor-estrellas label").hover(function () {
     const grupo = $(this).attr("data-grupo");

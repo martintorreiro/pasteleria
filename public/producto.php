@@ -1,6 +1,7 @@
 <?php
     include "header.php";
     include "db.php";
+    include "includes/estrellas.php";
 
 
     $idProd=$_GET["prod"];
@@ -15,6 +16,7 @@
     $resCom = $db->query($consultaCom);
     
     if($rowP = $resP->fetch_assoc()){
+        $valoracion = $rowP["valoracion"];
         $nombreP= $rowP["nombre"];
         $stock = $rowP["stock"];
         $descripcionCorta = $rowP["descripcion_corta"];
@@ -61,18 +63,15 @@ $(document).ready(function() {
 
                 <h2 class="mayu font-s-22 marg-b-15"><?php echo $nombreP ?></h2>
 
-                <!-- hacer parte review -->
-                <div class="reviews marg-b-15">
+                <div class="reviews font-s-14 marg-b-15 flex ai-center">
 
-                    <div class="container-principal">
-                        <div class="fondo"></div>
-                        <div class="container-estrellas"><i class='fa-solid fa-star color-gris-letra'></i><i
-                                class='fa-solid fa-star color-gris-letra'></i></div>
-                    </div>
-
-                    <span><a class="color-negro-letra font-s-14 hover-color-naranja"
+                    <?php
+                        echo pintaEstrellas(5,$valoracion);
+                    ?>
+                
+                    <span><a class="color-negro-letra hover-color-naranja"
                             href=""><?php echo $resCom->num_rows ?> review</a></span>
-                    <span class="marg-l-15"><a class="color-negro-letra font-s-14 hover-color-naranja" href="">Add Your
+                    <span class="marg-l-15"><a class="color-negro-letra hover-color-naranja" href="">Add Your
                             Review</a></span>
                 </div>
 
