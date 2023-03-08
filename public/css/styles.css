@@ -875,6 +875,9 @@ footer {
   color: var(--blanco-letras);
   z-index: 1;
 }
+.footer-contact .subscribe .subs-button button:hover {
+  background-color: var(--negro-principal);
+}
 
 .footer-contact .subscribe .subs-icon {
   position: absolute;
