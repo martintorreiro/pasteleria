@@ -63,6 +63,6 @@ $(document).ready(function () {
   });
 
   $(".filtro-item > h4").click(function () {
-    $(this).siblings().toggleClass("cerrar");
+    $(this).parent().toggleClass("cerrar");
   });
 });

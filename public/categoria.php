@@ -1,6 +1,7 @@
 <?php
     include "header.php";
     include "db.php";
+    include "includes/estrellas.php";
 
     $idCat=$_GET["cat"];
 
@@ -35,7 +36,7 @@
             <div class="filtro-busqueda flex column marg-b-50">
                 <h3 class="marg-b-25 font-s-24 padd">SHOP BY</h3>
                 <div class="borde-gris">
-                    <div class="filtro-item relative">
+                    <div class="filtro-item">
                         <h4 class="font-s-16 bg-color-gris-claro color-negro-letra padd-9-12 flex jc-sb">SUBCATEGORIAS
                             <span><i class="fa-solid fa-angle-up"></i></span>
                         </h4>
@@ -47,14 +48,12 @@
                         echo "<li class='font-s-12 color-gris-letra mayu marg-t-10 flex jc-sb '>".$rowSub["nombre"]."<span class='color-naranja'>(".$rowSub["suma_productos"].")</span></li>";
                     };
 
-
                     ?>
-
                             </ul>
                         </div>
                     </div>
 
-                    <div>
+                    <div class="filtro-item">
                         <h4 class="font-s-16 bg-color-gris-claro padd-9-12 flex jc-sb">PACKET COUNTRY <span><i
                                     class="fa-solid fa-angle-up"></i></span></h4>
                         <ul class="padd-9-12">
@@ -95,13 +94,7 @@
                     </div>
                     <div class='info-producto flex column'>
 
-                        <div class='puntuacion marg-t-10 color-naranja'>
-                            <i class='fa-solid fa-star'></i>
-                            <i class='fa-solid fa-star'></i>
-                            <i class='fa-solid fa-star'></i>
-                            <i class='fa-solid fa-star'></i>
-                            <i class='fa-solid fa-star'></i>     
-                        </div>
+                       ".pintaEstrellas(5,$rowProd["valoracion"])."
                     
                         <span class='marg-t-10'> 
                             <a class='mayu color-negro-letra' href='producto.php?prod='".$rowProd["id"]."'>".$rowProd["nombre"]." </a>
@@ -109,7 +102,7 @@
                         <span class='marg-t-10 color-negro-letra font-s-24 bold'>$".$rowProd["precio"]."</span>
                         <div class='flex jc-sb ai-center'>
                             <button class='padd-9-14 bg-color-negro marg-t-10 color-blanco'>ADD TO CART</button> 
-                            <div class='color-naranja'>
+                            <div class='actions color-naranja'>
                                 <i class='fa-solid fa-heart'></i>
                                 <i class='fa-solid fa-bars-staggered marg-l-15'></i>
                             </div>

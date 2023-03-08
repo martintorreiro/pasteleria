@@ -1,6 +1,7 @@
 <?php
     include "header.php";
     include "db.php";
+    include "includes/recortaTxt.php";
 
     $consulta = "SELECT * FROM post ORDER BY fecha DESC";
     $res = $db->query($consulta);
@@ -14,7 +15,13 @@
                 <ul class="padd-10 borde-gris">
 
                     <?php
-                        echo "<li class=''></li>"
+if($row = $res -> fetch_assoc()){
+    for ($i=0; $i < 3; $i++) { 
+        echo "<li></li>";
+    }
+}
+                    
+                        
                     ?>
 
                 </ul>

@@ -28,10 +28,10 @@
             </div>
             <div class="menu">
                 <ul class="flex">
-                    <li>BLOG</li>
-                    <li>MY WISH LIST</li>
-                    <li>SIGN IN</li>
-                    <li>CREATE AN ACOUNT</li>
+                    <li><a class="color-blanco hover-color-naranja" href="blog.php">BLOG</a></li>
+                    <li><a class="color-blanco hover-color-naranja" href="blog.php">MY WISH LIST</a></li>
+                    <li><a class="color-blanco hover-color-naranja" href="blog.php">SIGN IN</a></li>
+                    <li><a class="color-blanco hover-color-naranja" href="blog.php">CREATE AN ACOUNT</a></li>
                 </ul>
             </div>
             <div class="carrito">

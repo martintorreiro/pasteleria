@@ -132,6 +132,7 @@ button:hover {
 .color-rojo {
   color: rgb(204, 106, 106);
 }
+
 .color-negro-letra {
   color: var(--negro-principal);
 }
@@ -884,13 +885,19 @@ footer {
   cursor: pointer;
 }
 
-.grid-aside .filtro-busqueda .filtro-item .cerrar {
+
+.grid-aside .filtro-busqueda .filtro-item{
   overflow: hidden;
-  height: 0;
-  /* transform: scaleY(0);
-  transform-origin: top;*/
-  transition: height 0.5s ease; 
+  transition: height 1s ease-in-out;
 }
+
+.grid-aside .filtro-busqueda .filtro-item.cerrar{
+  height: 43px;
+  transition: height 1s ease-in-out;
+}
+
+
+
 
 .grid-main {
   width: 75%;
@@ -909,7 +916,7 @@ footer {
 .grid-main .item-producto button:hover {
   background-color: var(--naranja-primario);
 }
-.grid-main .item-producto i:hover {
+.grid-main .item-producto .actions i:hover {
   cursor: pointer;
   color: var(--negro-principal);
 }
