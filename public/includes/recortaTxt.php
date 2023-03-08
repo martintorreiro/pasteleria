@@ -7,6 +7,8 @@
             $textoRecortado = substr($txt,0,$lon);
             $textoRecortado .= "...";
             return $textoRecortado;
+        }else{
+            return $txt;
         }
     };
 

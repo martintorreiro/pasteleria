@@ -8,7 +8,7 @@
     $consulta = "SELECT * FROM comentarios_producto WHERE id_producto=$idProd";
     $res = $db->query($consulta);
 
-    $consultaValoracion = "SELECT ((AVG(nota_calidad) + AVG(nota_valor) + AVG(nota_precio))/3)*20 FROM comentarios_producto WHERE id_producto=$idProd"
+    
 
  
 ?>
@@ -23,9 +23,15 @@
 
                     echo "<li class='flex column border-b-gris padd-20-0'>
                             <span class='bold'>".$row["resumen"]."</span>
-                            ".pintaEstrellas(5,$row["nota_valor"])."
-                            ".pintaEstrellas(5,$row["nota_calidad"])."
-                            ".pintaEstrellas(5,$row["nota_precio"])."
+                            <div class='marg-t-10'>
+                            ".pintaEstrellas(5,$row["nota_valor"]*20)."
+                            </div>
+                            <div class='marg-t-10'>
+                            ".pintaEstrellas(5,$row["nota_calidad"]*20)."
+                            </div>
+                            <div class='marg-t-10'>
+                            ".pintaEstrellas(5,$row["nota_precio"]*20)."
+                            </div>
                             <p class='marg-t-10'>".$row["comentario"]."</p>
                             <div class='marg-t-10'><p>Review by <span class='mayu bold'>".$row["nombre"]."</span>. Posted on ".$row["fecha"]."</p></div>
                         </li>";
@@ -77,7 +83,7 @@
                                 class="fa-solid fa-star color-gris-letra"></i></label>
                         <label data-position="4" data-grupo="q" for="q4"><i
                                 class="fa-solid fa-star color-gris-letra"></i></label>
-                        <label data-position="5" data-grupo="q" for="star5"><i
+                        <label data-position="5" data-grupo="q" for="q5"><i
                                 class="fa-solid fa-star color-gris-letra"></i></label>
 
                         <input data-grupo="q" class="estrella" type="radio" name="q" id="q1" value="1">

@@ -68,9 +68,9 @@ $(document).ready(function() {
                     <?php
                         echo pintaEstrellas(5,$valoracion);
                     ?>
-                
-                    <span><a class="color-negro-letra hover-color-naranja"
-                            href=""><?php echo $resCom->num_rows ?> review</a></span>
+
+                    <span><a class="color-negro-letra hover-color-naranja" href=""><?php echo $resCom->num_rows ?>
+                            review</a></span>
                     <span class="marg-l-15"><a class="color-negro-letra hover-color-naranja" href="">Add Your
                             Review</a></span>
                 </div>
@@ -128,7 +128,10 @@ $(document).ready(function() {
 <script src="js/detalles-producto.js"></script>
 <script>
 $(function() {
-    cargarReviews(<?php echo $idProd; ?>, '<?php echo $nombreP; ?>');
+    $("#reviews").click(function() {
+        cargarReviews(<?php echo $idProd; ?>, '<?php echo $nombreP; ?>')
+    });
+
 
 })
 </script>

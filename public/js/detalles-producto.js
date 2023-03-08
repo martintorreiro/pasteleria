@@ -1,15 +1,13 @@
 function cargarReviews(idProd, nombreP) {
-  $("#reviews").click(function () {
-    $("#details-content").load(
-      "service/cargar-reviews.php?idProd=" + idProd + "&nombreP=" + nombreP,
-      function () {
-        gestionEstrellas();
-        manejadorReview();
-      }
-    );
-  });
+  $("#details-content").load(
+    "service/cargar-reviews.php?idProd=" + idProd + "&nombreP=" + nombreP,
+    function () {
+      console.log("cargadas");
+      gestionEstrellas();
+      manejadorReview(idProd, nombreP);
+    }
+  );
 }
-
 
 function gestionEstrellas() {
   $(".contenedor-estrellas label").hover(function () {
@@ -35,11 +33,10 @@ function gestionEstrellas() {
   });
 }
 
-function manejadorReview() {
+function manejadorReview(idProd, nombreP) {
   $(".review-form form").submit(function (e) {
     e.preventDefault();
     const fdata = new FormData($(".review-form form").get(0));
-    console.log("enviado", fdata);
 
     $.ajax({
       type: "POST",
@@ -48,7 +45,8 @@ function manejadorReview() {
       processData: false,
       contentType: false,
       success: function (data) {
-        console.log("--->", data);
+        console.log("--->", idProd, nombreP);
+        cargarReviews(idProd, nombreP);
       },
     });
   });
