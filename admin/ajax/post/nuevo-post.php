@@ -20,7 +20,7 @@ $res = $db->query("SELECT * FROM usuario");
 
                     <div class="form_group">
                         <label for="texto">Texto:</label>
-                        <input type="text" id="texto" name="texto">
+                        <textarea id="texto" name="texto" ></textarea>
                     </div>
 
                     <div class="form_group">
@@ -69,3 +69,6 @@ $res = $db->query("SELECT * FROM usuario");
         </div>
     </form>
 </div>
+
+
+<script>tinymce.init({selector:'textarea'});</script>

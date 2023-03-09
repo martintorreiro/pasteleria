@@ -36,6 +36,7 @@ include "header.php";
 <script src="js/cargarCategorias.js"></script>
 <script>
 $(function() {
+    
     cargarCategorias();
     manejarFormulario({
         guardar: "ajax/categoria/nueva-categoria.php",

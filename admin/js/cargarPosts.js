@@ -12,5 +12,6 @@ const cargarPosts = () => {
       },
       cargarPosts
     );
+    
   });
 };

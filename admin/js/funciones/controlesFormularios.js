@@ -39,6 +39,8 @@ const manejarFormulario = (form, servicio, callback) => {
   $("#añadir").click(function () {
     const controlActual = $("#controles").html();
     $("#controles").load(form.guardar, () => {
+
+      tinymce.init({selector:'textarea'});
       $("#controles").addClass("modal");
 
       $("#cancelar").click(() => {

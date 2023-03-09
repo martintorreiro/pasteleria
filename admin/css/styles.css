@@ -27,6 +27,12 @@ button:hover {
   cursor: pointer;
 }
 
+.absolute{
+  position: absolute;
+}
+.top-0{
+  top: 0;
+}
 .w-960 {
   width: 960px;
 }
@@ -269,6 +275,7 @@ td {
   border-radius: 5px;
   border: 1px solid rgb(192, 192, 192);
   background-color: white;
+  outline: none;
 }
 
 .formulario_estandar .form_group input[type="text"]:focus,
@@ -277,7 +284,18 @@ td {
 .formulario_estandar .form_group input[type="password"]:focus,
 .formulario_estandar .form_group input[type="email"]:focus,
 .formulario_estandar .form_group input[type="date"]:focus {
+  border: 1px solid #007bff;
+}
+
+.formulario_estandar .form_group textarea{
   outline: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid rgb(192, 192, 192);
+  height: 200px;
+}
+
+.formulario_estandar .form_group textarea:focus{
   border: 1px solid #007bff;
 }
 

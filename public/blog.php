@@ -27,7 +27,17 @@ if(isset($_POST["order"])){
     $posts.= "DESC";
 }
 
+
+if(isset($_POST["show"])){
+    $posts.= "LIMIT "..","$_POST["show"].;
+}
 $resPosts = $db->query($posts);
+
+//----------paginacion
+
+if(isset($_POST["show"])){
+    echo $_POST["show"];
+}
 
 
 ?>
@@ -107,14 +117,17 @@ $resPosts = $db->query($posts);
                 </div>
 
                 <div>
-
+                    <form id="form-show" action="blog.php" method="post">
                     <label class='padd-20 bold'>Show</label>
-                    <select name="show" class="blog-select" id="select-pages">
-                        <option value="3" selected>3</option>
-                        <option value="6">6</option>
-                        <option value="9">9</option>
-                    </select>
+                    <select name="show" class="blog-select" id="select-pages" onChange='this.form.submit()'>
 
+                        <option value="3" selected 
+                            <?php echo (isset($_POST["show"])&&$_POST["show"]=="3")? "selected": "" ?>
+                            <?php echo isset($_POST["sort"])? "": "selected" ?>>3</option>
+                        <option value="6" <?php echo (isset($_POST["show"])&&$_POST["show"]=="6")? "selected": "" ?>>6</option>
+                        <option value="9" <?php echo (isset($_POST["show"])&&$_POST["show"]=="9")? "selected": "" ?>>9</option>
+                    </select>
+                    </form>
                 </div>
 
             </div>
