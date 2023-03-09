@@ -6,7 +6,12 @@
 <main>
 
     <h1>Listado Posts</h1>
+
     <div class="contenedor-tabla">
+        <div class="controles" id="controles">
+            <button type="button" id="añadir" onClick="cargarForm('ajax/post/nuevo-post.php')">Añadir
+                Post</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -24,31 +29,21 @@
             </tbody>
         </table>
 
-        <div class="controles" id="controles">
-            <button id="añadir">Añadir Post</button>
-        </div>
+
+
+        <div id="modal-formulario"></div>
     </div>
-<!-- <div class="absolute top-0"><textarea name="" id="" cols="30" rows="10"></textarea></div> -->
-    
+
+
 </main>
 
 
 <script src="js/cargarPosts.js"></script>
-   
+
 <script>
 $(function() {
-    
     cargarPosts();
-    manejarFormulario({
-        guardar: "ajax/post/nuevo-post.php",
-        editar: "ajax/post/editar-post.php"
-    }, {
-        guardar: "servicio/post/guardar-post.php",
-        editar: "servicio/post/editar-post.php"
-    }, cargarPosts)
-    
 })
-
 </script>
 
 <?php 

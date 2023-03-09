@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.numeric.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.min.js"></script>
     <script src="js/funciones/cargarPreviews.js"></script>
     <script src="js/funciones/controlesFormularios.js"></script>
     <script src="js/funciones/borrarFoto.js"></script>
     <script src="js/funciones/cargarFotosForm.js"></script>
-    <script src="js/tinymce/tinymce.min.js"  referrerpolicy="origin"></script>
-    
+    <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>Bakerix</title>

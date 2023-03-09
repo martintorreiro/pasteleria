@@ -13,6 +13,9 @@
 
 //---------------main
 
+$numeroPosts = "SELECT * FROM posts";
+$resNumeroPosts = $db->query($numeroPosts);
+
 if(isset($_POST["sort"])){
     $posts = "SELECT p.*, f.imagen, CONCAT(u.nombre,' ',u.apellidos) AS autor FROM post p LEFT JOIN usuario u ON p.id_usuario = u.id
     LEFT JOIN (SELECT nombre AS imagen,id_post FROM fotos_post GROUP BY id_post) f 
@@ -27,17 +30,27 @@ if(isset($_POST["order"])){
     $posts.= "DESC";
 }
 
-
-if(isset($_POST["show"])){
-    $posts.= "LIMIT "..","$_POST["show"].;
-}
-$resPosts = $db->query($posts);
-
 //----------paginacion
+
+$itemsXPag= 3;
+$paginaActual = 0;
 
 if(isset($_POST["show"])){
     echo $_POST["show"];
+    $itemsXPag = $_POST["show"];
 }
+
+if(isset($_GET["pag"])){
+    $paginaActual = $_GET["pag"];
+}
+
+$posts .= "LIMIT ".$paginaActual.",".$itemsXPag;
+
+$resPosts = $db->query($posts);
+
+print_r($resNumeroPosts) ;
+
+
 
 
 ?>
@@ -73,7 +86,7 @@ if(isset($_POST["show"])){
                             <span>".$row["nombre"]."</span> on
                             <a class='hover-color-naranja color-negro-letra font-s-12 marg-b-10' href='noticia.php?noticia=".$row["id"]."'>".recortaTxt($row["titulo"],40)."</a>
                             <p>".recortaTxt($row["comentario"],40)."</p>
-                            </li>";      
+                            </li>";
                     }
                       
                     ?>
@@ -118,15 +131,17 @@ if(isset($_POST["show"])){
 
                 <div>
                     <form id="form-show" action="blog.php" method="post">
-                    <label class='padd-20 bold'>Show</label>
-                    <select name="show" class="blog-select" id="select-pages" onChange='this.form.submit()'>
+                        <label class='padd-20 bold'>Show</label>
+                        <select name="show" class="blog-select" id="select-pages" onChange='this.form.submit()'>
 
-                        <option value="3" selected 
-                            <?php echo (isset($_POST["show"])&&$_POST["show"]=="3")? "selected": "" ?>
-                            <?php echo isset($_POST["sort"])? "": "selected" ?>>3</option>
-                        <option value="6" <?php echo (isset($_POST["show"])&&$_POST["show"]=="6")? "selected": "" ?>>6</option>
-                        <option value="9" <?php echo (isset($_POST["show"])&&$_POST["show"]=="9")? "selected": "" ?>>9</option>
-                    </select>
+                            <option value="3" selected
+                                <?php echo (isset($_POST["show"])&&$_POST["show"]=="3")? "selected": "" ?>
+                                <?php echo isset($_POST["sort"])? "": "selected" ?>>3</option>
+                            <option value="6"
+                                <?php echo (isset($_POST["show"])&&$_POST["show"]=="6")? "selected": "" ?>>6</option>
+                            <option value="9"
+                                <?php echo (isset($_POST["show"])&&$_POST["show"]=="9")? "selected": "" ?>>9</option>
+                        </select>
                     </form>
                 </div>
 

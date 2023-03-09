@@ -11,7 +11,8 @@ if($rowPost = $resPost -> fetch_assoc()){
     <div class="cabecera">
         <h2>Editar Post</h2>
     </div>
-    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data"
+        onSubmit="return enviarForm('servicio/post/editar-post.php?id=<?php echo $id ?>')">
         <div class="form_body">
             <div class="form_inputs">
 
@@ -24,7 +25,8 @@ if($rowPost = $resPost -> fetch_assoc()){
 
                     <div class="form_group">
                         <label for="texto">Texto:</label>
-                        <input type="text" id="texto" name="texto" value='<?php echo $rowPost["texto"]?>'>
+                        <textarea name="texto" id="texto"><?php echo $rowPost["texto"]?></textarea>
+
                     </div>
 
                     <div class="form_group">
@@ -51,7 +53,7 @@ if($rowPost = $resPost -> fetch_assoc()){
 
                             }else{
                                 echo "<p>No se han podido cargar los datos de los autores</p>";
-                            }
+                            };
 
                         ?>
 
@@ -80,7 +82,7 @@ if($rowPost = $resPost -> fetch_assoc()){
             </div>
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>

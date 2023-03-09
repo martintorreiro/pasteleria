@@ -21,6 +21,7 @@ const manejarFormulario = (form, servicio, callback) => {
         { id: $id, tabla: $tabla },
         function (data) {
           console.log(data);
+
           $("#confirmacion-modal").remove();
           callback();
         }
@@ -39,14 +40,12 @@ const manejarFormulario = (form, servicio, callback) => {
   $("#añadir").click(function () {
     const controlActual = $("#controles").html();
     $("#controles").load(form.guardar, () => {
-
-      tinymce.init({selector:'textarea'});
       $("#controles").addClass("modal");
-
+      alert("AQUI");
+      tinymce.init({ selector: "textarea" });
       $("#cancelar").click(() => {
-        $("#controles").removeClass("modal");
         $("#controles").html(controlActual);
-        manejarFormulario(form, servicio, callback);
+        //manejarFormulario(form, servicio, callback);
       });
 
       $(".form_group #categoria").change(function () {
@@ -246,3 +245,64 @@ const manejarFormulario = (form, servicio, callback) => {
     });
   });
 };
+
+function cargarForm(form) {
+  $("#modal-formulario").load(form, () => {
+    $("#modal-formulario").addClass("modal");
+    tinymce.init({ selector: "textarea" });
+  });
+}
+
+function cerrarForm() {
+  $("#modal-formulario").removeClass("modal");
+  $("#modal-formulario").empty();
+  tinyMCE.remove();
+}
+
+function enviarForm(service) {
+  tinymce.triggerSave();
+
+  const fdata = new FormData($("#formulario-manejado").get(0));
+
+  $.ajax({
+    url: service,
+    type: "POST",
+    data: fdata,
+    processData: false,
+    contentType: false,
+    beforeSend: function () {
+      //something before send
+    },
+    success: function (data) {
+      console.log("enviado", data);
+      $("#modal-formulario").removeClass("modal");
+      $("#modal-formulario").empty();
+      tinyMCE.remove();
+    },
+  });
+  return false;
+}
+
+function borrarFila(id, tabla) {
+  $("#confirmacion-modal").remove();
+
+  $ejeY = e.pageY;
+  $ejeX = e.pageX;
+
+  $("main").append(
+    "<div id=confirmacion-modal><p>Esta seguro de que desea borrar esta fila?</p><button id='confirmar-borrado'>Confirmar</button></div>"
+  );
+  $("#confirmacion-modal")
+    .css("width", "200px")
+    .css("top", $ejeY)
+    .css("left", $ejeX - 200);
+
+  $("#confirmar-borrado").click(function () {
+    $.post("servicio/borrar-tabla.php", { id, tabla }, function (data) {
+      console.log(data);
+
+      $("#confirmacion-modal").remove();
+      callback();
+    });
+  });
+}

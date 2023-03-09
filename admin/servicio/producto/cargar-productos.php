@@ -1,5 +1,6 @@
 <?php
 include "../../db.php";
+include "../../includes/recortaTxt.php";
 $consulta = "SELECT p.*,COUNT(f.id) AS imagenes ,s.nombre AS nombreSubcategoria, c.nombre AS nombreCategoria FROM producto p 
             LEFT JOIN fotos_producto f ON f.id_producto = p.id
             LEFT JOIN subcategoria s ON p.id_subcategoria = s.id
@@ -13,7 +14,7 @@ $res = $db->query($consulta);
 
         $cadena .="<tr>
                 <td>".$row['nombre']."</td>
-                <td>".$row['descripcion']."</td>
+                <td>".recortaTxt($row['descripcion'],100)."</td>
                 <td>".$row['precio']."</td>
                 <td>".$row['stock']."</td>
                 <td>".$row['imagenes']."</td>

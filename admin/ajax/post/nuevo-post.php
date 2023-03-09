@@ -9,7 +9,10 @@ $res = $db->query("SELECT * FROM usuario");
     <div class="cabecera">
         <h2>Añadir Post</h2>
     </div>
-    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
+
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data"
+        onSubmit="return enviarForm('servicio/post/guardar-post.php')">
+
         <div class="form_body">
             <div class="form_inputs">
                 <div>
@@ -20,7 +23,7 @@ $res = $db->query("SELECT * FROM usuario");
 
                     <div class="form_group">
                         <label for="texto">Texto:</label>
-                        <textarea id="texto" name="texto" ></textarea>
+                        <textarea id="texto" name="texto"></textarea>
                     </div>
 
                     <div class="form_group">
@@ -64,11 +67,8 @@ $res = $db->query("SELECT * FROM usuario");
             </div>
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>
 </div>
-
-
-<script>tinymce.init({selector:'textarea'});</script>

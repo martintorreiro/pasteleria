@@ -1,7 +1,7 @@
 const cargarPosts = () => {
   $.post(`servicio/post/cargar-posts.php`, function (data) {
     $("#body-tabla").html(data);
-    manejarFormulario(
+    /*  manejarFormulario(
       {
         guardar: "ajax/post/nuevo-post.php",
         editar: "ajax/post/editar-post.php",
@@ -11,7 +11,6 @@ const cargarPosts = () => {
         editar: "servicio/post/editar-post.php",
       },
       cargarPosts
-    );
-    
+    ); */
   });
 };
