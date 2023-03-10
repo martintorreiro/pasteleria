@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.numeric.js"></script>   
+    <script src="js/jquery.numeric.js"></script>
     <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js/busqueda.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/index.js"></script>
     <title>Document</title>
@@ -41,12 +42,14 @@
             </div>
         </div>
         <div class="header-nav">
-            <div class="logo">
-                <a href="index.php"><img src="imagenes/logo.png" alt="Logo empresa"></a>
-            </div>
-            <div>
-                <ul class="nav-categorias">
-                    <?php
+            <div id="nav-main">
+                <div class=" logo">
+                    <a href="index.php"><img src="imagenes/logo.png" alt="Logo empresa"></a>
+                </div>
+                <div>
+
+                    <ul class="nav-categorias">
+                        <?php
                         $consultaCat = "SELECT * FROM categoria";
                         $resCat = $db -> query($consultaCat);
                        
@@ -71,8 +74,16 @@
                                  </li>";
                         }
                     ?>
-                </ul>
+                    </ul>
+                </div>
+
+
             </div>
-            <div><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div id="nav-search"></div>
+            <div class="padd-10 relative control-search" id="control-search" onClick="abrirBusqueda(this)">
+                <i class="fa-solid fa-magnifying-glass font-s-24 absolute mostrar-search" id="cerrado"></i>
+                <i class="fa-solid fa-circle-xmark font-s-28 absolute" id="abierto"></i>
+            </div>
+
         </div>
     </header>
