@@ -81,20 +81,30 @@
 
                 </div>
                 <div id="nav-search" class="absolute flex ai-center top-0 right-0 bot-0 left-0">
-                    <form class="form-reducido relative w-x-100 borde-gris bg-color-blanco" action="" id="form-search" >
+                    
+                        <div class="w-x-100">
+                            <form class="form-reducido relative w-x-100 borde-gris bg-color-blanco" action="" id="form-search" >
 
-                        <input class="w-x-100 placeholder-negro " required name="subs" id="nav-input" type="text" placeholder="Search entire store here">
+                                <input class="w-x-100 placeholder-negro " required name="subs" id="nav-input" type="text" placeholder="Search entire store here">
 
-                        <div class="subs-icon absolute flex color-negro ">
-                            <label for="nav-input" >
-                            <i class="fa-solid fa-magnifying-glass font-s-18" ></i>
-                            </label>
+                                <div class="subs-icon absolute flex color-negro ">
+                                    <label for="nav-input" >
+                                    <i class="fa-solid fa-magnifying-glass font-s-18" ></i>
+                                    </label>
+                                </div>
+
+                                <div class=" absolute top-5 right-5 bot-5">
+                                    <button id="search-button" class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SEARCH</button>
+                                </div>
+                            </form>
                         </div>
-
-                        <div class=" absolute top-5 right-5 bot-5">
-                            <button id="search-button" class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SEARCH</button>
-                        </div>
-                    </form>
+                        
+                    
+                </div>
+                <div class="absolute left-0 right-0 resultados-search bg-color-blanco">
+                    <ul id="contenedor-resultados">
+                       
+                    </ul>
                 </div>
 
             </div>

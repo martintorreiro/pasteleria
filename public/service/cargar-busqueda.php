@@ -10,7 +10,7 @@
 
         $cadena = "";
         while($row = $res->fetch_assoc()){
-            echo "<li></li>";
+            $cadena .= "<li></li>";
         }
 
         echo(json_encode($consulta)) ;
