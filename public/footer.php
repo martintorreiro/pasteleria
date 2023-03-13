@@ -19,15 +19,17 @@
                 and
                 special offers</p>
 
-            <form class="subscribe w-x-100 marg-t-20" action="">
+            <form class="form-reducido relative w-x-100 marg-t-20" action="">
 
-                <input class="w-x-100" type="text" placeholder="Enter your email address">
+                <input class="w-x-100" name="subs" id="input" type="text" placeholder="Enter your email address">
 
-                <div class="subs-icon">
-                    <i class="fa-solid fa-envelope"></i>
+                <div class="subs-icon absolute flex color-blanco">
+                    <label for="input">
+                        <i class="fa-solid fa-envelope font-s-16"></i>
+                    </label>
                 </div>
-                <div class="subs-button">
-                    <button>SUBSCRIBE</button>
+                <div class=" absolute top-5 right-5 bot-5">
+                    <button class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SUBSCRIBE</button>
                 </div>
             </form>
         </div>
