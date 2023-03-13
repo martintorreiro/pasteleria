@@ -81,40 +81,44 @@
 
                 </div>
                 <div id="nav-search" class="absolute flex ai-center top-0 right-0 bot-0 left-0">
-                    
-                        <div class="w-x-100">
-                            <form class="form-reducido relative w-x-100 borde-gris bg-color-blanco" action="" id="form-search" >
 
-                                <input class="w-x-100 placeholder-negro " required name="subs" id="nav-input" type="text" placeholder="Search entire store here">
+                    <div class="w-x-100">
+                        <form class="form-reducido relative w-x-100 borde-gris bg-color-blanco" action=""
+                            id="form-search">
 
-                                <div class="subs-icon absolute flex color-negro ">
-                                    <label for="nav-input" >
-                                    <i class="fa-solid fa-magnifying-glass font-s-18" ></i>
-                                    </label>
-                                </div>
+                            <input class="w-x-100 placeholder-negro " required name="subs" id="nav-input" type="text"
+                                placeholder="Search entire store here">
 
-                                <div class=" absolute top-5 right-5 bot-5">
-                                    <button id="search-button" class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SEARCH</button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                    
+                            <div class="subs-icon absolute flex color-negro ">
+                                <label for="nav-input">
+                                    <i class="fa-solid fa-magnifying-glass font-s-18"></i>
+                                </label>
+                            </div>
+
+                            <div class=" absolute top-5 right-5 bot-5">
+                                <button id="search-button"
+                                    class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SEARCH</button>
+                            </div>
+                        </form>
+                    </div>
+
+
                 </div>
-                <div class="absolute left-0 right-0 resultados-search bg-color-blanco">
+                <div class="desplegable-resultados absolute left-0 right-0 resultados-search bg-color-blanco">
                     <ul id="contenedor-resultados">
-                       
+
                     </ul>
                 </div>
 
             </div>
 
-            <div class="flex jc-center ai-center h-x-100 marg-l-10 control-search marg-r-25" id="control-search" >
+            <div class="flex jc-center ai-center h-x-100 marg-l-10 control-search marg-r-25" id="control-search">
                 <label for="toggle-search" class="relative hover-color-naranja pointer zindex-1" id="close-label">
-                <i class="fa-solid fa-magnifying-glass font-s-24 absolute top-5 left-5 mostrar-search" id="search-icon"></i>
-                <i class="fa-solid fa-circle-xmark font-s-28 absolute top-5 left-5" id="close-icon"></i>
+                    <i class="fa-solid fa-magnifying-glass font-s-24 absolute top-5 left-5 mostrar-search"
+                        id="search-icon"></i>
+                    <i class="fa-solid fa-circle-xmark font-s-28 absolute top-5 left-5" id="close-icon"></i>
                 </label>
-                <input type="checkbox" check="false" id="toggle-search" class="disp-none" >
+                <input type="checkbox" check="false" id="toggle-search" class="disp-none">
             </div>
 
         </div>
