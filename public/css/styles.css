@@ -106,6 +106,9 @@ button:hover {
 .w-50 {
   width: 50px;
 }
+.w-30 {
+  width: 30px;
+}
 
 .centrado {
   margin-left: auto;
@@ -495,6 +498,24 @@ header {
 
 .header-content .carrito span {
   margin-left: 8px;
+}
+#carrito .close-icon {
+  opacity: 0;
+}
+#carrito .open-icon {
+  opacity: 1;
+}
+
+#carrito.abierto .close-icon {
+  opacity: 1;
+}
+#carrito.abierto .open-icon {
+  opacity: 0;
+}
+
+#contenido-carrito {
+  top: 50px;
+  color: var(--negro-principal);
 }
 
 .header-nav {

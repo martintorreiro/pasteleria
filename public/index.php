@@ -73,9 +73,12 @@
                                     </span>
                                     <span class='precio'>$".$rowProd["precio"]."</span>
                                     <div class='acciones'>
-                                        <button>ADD TO CART</button> 
+                                    
+                                        <button class='añadircarrito' data-id_producto='".$rowProd["id"]."'>ADD TO CART</button>
+                                         
                                         <div>
-                                        <i class='fa-solid fa-heart'></i></div>
+                                            <i class='fa-solid fa-heart'></i>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -174,6 +177,11 @@
 
 
 </main>
+
+<script src="js/carrito.js"></script>
+<script>
+eventosCarrito()
+</script>
 
 <?php
     include "footer.php"

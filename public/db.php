@@ -1,5 +1,5 @@
 <?php  
-
+    session_start();
 
     $host = "localhost";
     $user = "root";
@@ -8,4 +8,6 @@
 
     $db = new mysqli($host, $user, $password, $db_name);
     
+
+
 ?>

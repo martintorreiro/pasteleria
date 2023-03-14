@@ -23,7 +23,7 @@
 
 <body>
     <header>
-        <div class="header-content flex jc-sb ai-center">
+        <div class="header-content flex jc-sb ai-center relative">
             <div class="welcome">
                 <p>WELCOME TO OUR ONLINE STORE!</p>
             </div>
@@ -35,9 +35,18 @@
                     <li><a class="color-blanco hover-color-naranja" href="blog.php">CREATE AN ACOUNT</a></li>
                 </ul>
             </div>
-            <div class="carrito">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span>CART: 0</span>
+            <div class="carrito pointer hover-color-negro" id="carrito">
+                <div class="relative h-x-100 w-30">
+                    <i
+                        class="close-icon fa-solid fa-xmark absolute top-0 right-0 left-0 bot-0 flex jc-center ai-center"></i>
+                    <i
+                        class="open-icon fa-solid fa-cart-shopping absolute top-0 right-0 left-0 bot-0 flex jc-center ai-center"></i>
+                </div>
+                <span>CART : </span><span
+                    id="cantidadCarrito"><?php echo isset($_SESSION['carrito'])?sizeof($_SESSION['carrito']):0 ?></span>
+            </div>
+            <div id="contenido-carrito" class="absolute top-50 right-0 padd-20 bg-color-blanco zindex-10 disp-none">
+                <p>YOU HAVE NO ITEMS IN YOUR SHOPING CART</p>
             </div>
         </div>
         <div class="header-nav flex jc-sb ai-center" id="header-nav">
