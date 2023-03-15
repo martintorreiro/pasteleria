@@ -19,9 +19,22 @@ if (isset($_POST['id_producto'])){
 
     $actualizado=false;
     foreach($_SESSION['carrito'] as $clave=>$valor){
+
         if ($valor['id_producto']==$id_producto){
-            $_SESSION['carrito'][$clave]['cantidad'] = $_SESSION['carrito'][$clave]['cantidad']+$cantidad;
+
+            if($cantidad=="all"){
+                unset($_SESSION['carrito'][$clave]);
+            }else{
+
+                $_SESSION['carrito'][$clave]['cantidad'] = $_SESSION['carrito'][$clave]['cantidad']+$cantidad;
+    
+                if($_SESSION['carrito'][$clave]['cantidad']<1){
+                    unset($_SESSION['carrito'][$clave]);
+                   }
+            }
+
             $actualizado=true;
+
         }
     }
 

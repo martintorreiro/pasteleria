@@ -45,9 +45,8 @@
                 <span>CART : </span><span
                     id="cantidadCarrito"><?php echo isset($_SESSION['carrito'])?sizeof($_SESSION['carrito']):0 ?></span>
             </div>
-            <div id="contenido-carrito" class="absolute top-50 right-0 padd-20 bg-color-blanco zindex-10 disp-none">
-                <p>YOU HAVE NO ITEMS IN YOUR SHOPING CART</p>
-            </div>
+
+            <div id="contenido-carrito" class="absolute top-50 right-0 padd-20 bg-color-blanco zindex-10 disp-none"></div>
         </div>
         <div class="header-nav flex jc-sb ai-center" id="header-nav">
             <div class="relative h-x-100 w-x-100 marg-l-40">
@@ -133,3 +132,4 @@
         </div>
     </header>
     <script src="js/busqueda.js"></script>
+    

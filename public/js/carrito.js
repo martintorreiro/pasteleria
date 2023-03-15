@@ -1,50 +1,37 @@
+function cargarCarrito(){
+  $("#contenido-carrito").load(
+    "service/cargar-carrito.php",
+    function () {
+      $(".añadircarrito").off();
+      eventosCarrito();
+    }
+  );
+}
+
 function eventosCarrito() {
+
+  
+
   $(".añadircarrito").click(function () {
     id_producto = $(this).data("id_producto");
-
+    cantidad = $(this).data("cantidad");
     $.post(
       "service/addCart.php",
-      { id_producto: id_producto, cantidad: 1 },
+      { id_producto: id_producto, cantidad: cantidad },
       function (data) {
         if (data == "OK") {
           $("#cantidadCarrito").load("service/carritoCantidad.php");
-          $("#contenido-carrito").load(
-            "service/cargar-carrito.php",
-            function () {
-              $(".añadircarrito").off();
-              $(".eliminaruno").off();
-              eventosCarrito();
-            }
-          );
+          cargarCarrito()
         } else {
         }
       }
     );
   });
 
-  $(".eliminaruno").click(function () {
-    id_producto = $(this).data("id_producto");
-    console.log("carrito", id_producto);
-    $.post(
-      "service/removeOneCart.php",
-      { id_producto: id_producto },
-      function (data) {
-        if (data == "OK") {
-          $("#cantidadCarrito").load("service/carritoCantidad.php");
-          $("#contenido-carrito").load(
-            "service/cargar-carrito.php",
-            function () {
-              $(".eliminaruno").off();
-              $(".añadircarrito").off();
-              eventosCarrito();
-            }
-          );
-        } else {
-        }
-      }
-    );
-  });
+ 
 }
+
+
 
 $("#carrito").click(function () {
   $(this).toggleClass("abierto");

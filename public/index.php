@@ -180,7 +180,7 @@
 
 <script src="js/carrito.js"></script>
 <script>
-eventosCarrito()
+cargarCarrito()
 </script>
 
 <?php
