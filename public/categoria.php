@@ -1,6 +1,5 @@
 <?php
     include "header.php";
-    include "db.php";
     include "includes/estrellas.php";
 
     $idCat=$_GET["cat"];
@@ -101,7 +100,7 @@
                         </span>
                         <span class='marg-t-10 color-negro-letra font-s-24 bold'>$".$rowProd["precio"]."</span>
                         <div class='flex jc-sb ai-center'>
-                            <button class='padd-9-14 bg-color-negro marg-t-10 color-blanco'>ADD TO CART</button> 
+                            <button data-id_producto='".$rowProd["id"]."' class='añadircarrito padd-9-14 bg-color-negro marg-t-10 color-blanco'>ADD TO CART</button> 
                             <div class='actions color-naranja'>
                                 <i class='fa-solid fa-heart'></i>
                                 <i class='fa-solid fa-bars-staggered marg-l-15'></i>

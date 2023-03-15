@@ -178,11 +178,6 @@
 
 </main>
 
-<script src="js/carrito.js"></script>
-<script>
-cargarCarrito()
-</script>
-
 <?php
     include "footer.php"
 ?>

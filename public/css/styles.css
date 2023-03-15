@@ -88,14 +88,23 @@ button:hover {
 .w-x-75 {
   width: 75%;
 }
+.w-x-70 {
+  width: 70%;
+}
 .w-x-50 {
   width: 50%;
+}
+.w-x-30 {
+  width: 30%;
 }
 .w-x-25 {
   width: 25%;
 }
 .w-1024 {
   width: 1024px;
+}
+.w-160 {
+  width: 160px;
 }
 .w-100 {
   width: 100px;
@@ -117,6 +126,11 @@ button:hover {
 
 .ta-center {
   text-align: center;
+}
+.of-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .flex {
@@ -260,6 +274,9 @@ button:hover {
 .font-s-18 {
   font-size: 18px;
 }
+.font-s-20 {
+  font-size: 20px;
+}
 .font-s-22 {
   font-size: 22px;
 }
@@ -333,6 +350,9 @@ button:hover {
 }
 .padd-0-20 {
   padding: 0 20px;
+}
+.padd-0-10 {
+  padding: 0 10px;
 }
 .padd-8-0 {
   padding: 8px 0;
@@ -617,6 +637,24 @@ header {
 }
 #contenedor-resultados::-webkit-scrollbar {
   display: none;
+}
+
+/* -----carrito */
+
+.cantidad-carrito button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--gris-secundario);
+}
+.cantidad-carrito button:hover {
+  background-color: var(--naranja-primario);
+}
+.cantidad-carrito input {
+  text-align: center;
+  width: 3em;
+  outline: none;
+  border: none;
 }
 /* ------------INDEX------------ */
 

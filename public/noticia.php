@@ -1,6 +1,5 @@
 <?php
     include "header.php";
-    include "db.php";
 
     $id = $_GET["id"];
 

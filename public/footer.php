@@ -29,7 +29,8 @@
                     </label>
                 </div>
                 <div class=" absolute top-5 right-5 bot-5">
-                    <button class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SUBSCRIBE</button>
+                    <button
+                        class="padd-11-20 font-s-16 bold color-blanco bg-color-naranja hover-bg-negro ">SUBSCRIBE</button>
                 </div>
             </form>
         </div>
@@ -88,6 +89,11 @@
     </div>
 
 </footer>
+
+<script src="js/carrito.js"></script>
+<script>
+cargarCarrito()
+</script>
 
 </body>
 

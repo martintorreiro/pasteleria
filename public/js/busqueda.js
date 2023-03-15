@@ -28,7 +28,6 @@ const cerrarSearch = () => {
 };
 
 const handleFocus = (e) => {
-  console.log("focus", e);
   if (
     e.relatedTarget == null ||
     (e.relatedTarget.id !== "search-button" &&
@@ -61,8 +60,6 @@ const saveInput = (e) => {
 
   if (e.srcElement.value.length > 1) {
     timerSearch = setTimeout(() => {
-      console.log("timeout");
-
       fetch(`service/cargar-busqueda.php?search=${e.srcElement.value}`)
         .then((response) => response.json())
         .then((data) => {

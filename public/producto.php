@@ -1,6 +1,5 @@
 <?php
     include "header.php";
-    include "db.php";
     include "includes/estrellas.php";
 
 
@@ -16,6 +15,7 @@
     $resCom = $db->query($consultaCom);
     
     if($rowP = $resP->fetch_assoc()){
+
         $valoracion = $rowP["valoracion"];
         $nombreP= $rowP["nombre"];
         $stock = $rowP["stock"];
@@ -80,13 +80,14 @@ $(document).ready(function() {
                 <span class="font-s-32 bold color-naranja">$<?php echo $precio ?></span>
 
                 <div class="product-add-form">
-                    <form action="">
+                    <form class="añadirN">
                         <div class="padd-30-0">
-                            <input type="text" value="1" class="positive-integer cantidad">
-                            <button type="button"
-                                class='padd-11-20 marg-l-15 font-s-16 bold bg-color-naranja color-blanco hover-bg-negro'>ADD
-                                TO
-                                CART</button>
+                            <input type="hidden" name="id_producto" value="<?php echo $idProd ?>">
+                            <input type="text" name="cantidad" value="1" class="positive-integer cantidad">
+                            <button
+                                class='padd-11-20 marg-l-15 font-s-16 bold bg-color-naranja color-blanco hover-bg-negro'>
+                                ADD TO CART
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -141,4 +142,4 @@ $(function() {
 <?php
    
     include "footer.php";
-    ?>
+?>
