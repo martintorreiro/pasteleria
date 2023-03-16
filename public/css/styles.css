@@ -91,8 +91,14 @@ button:hover {
 .w-x-70 {
   width: 70%;
 }
+.w-x-60 {
+  width: 60%;
+}
 .w-x-50 {
   width: 50%;
+}
+.w-x-40 {
+  width: 40%;
 }
 .w-x-30 {
   width: 30%;
@@ -306,6 +312,9 @@ button:hover {
 
 .padd-5 {
   padding: 5px;
+}
+.padd-8 {
+  padding: 8px;
 }
 .padd-10 {
   padding: 10px;
@@ -1271,4 +1280,69 @@ input.estrella {
   height: 242px;
   resize: none;
   padding: 15px;
+}
+
+/* ------------CHECKOUT------------ */
+
+.checkout-header {
+  width: 66.666%;
+}
+
+.checkout-header li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 18px 30px;
+  background-color: var(--gris-secundario);
+}
+
+.checkout-header li.active {
+  background-color: white;
+  border: 0.5px solid var(--gris-secundario);
+}
+
+.checkout-header li span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  width: 38px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: var(--gris-principal);
+  font-size: 20px;
+  color: white;
+}
+
+.checkout-header li.active span {
+  background-color: var(--naranja-primario);
+}
+
+#checkout-form .input-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+#checkout-form .input-container label {
+  display: inline-block;
+  width: 25%;
+  text-align: right;
+  padding: 6px 15px 0 0;
+  font-weight: bold;
+}
+
+#checkout-form .input-container.required label::after {
+  content: "*";
+  color: var(--naranja-primario);
+  margin-left: 5px;
+}
+
+#checkout-form .input-container input {
+  width: 75%;
+  height: 42px;
+  border: 0.5px solid var(--gris-secundario);
+  outline: none;
+  padding: 0 15px;
 }
