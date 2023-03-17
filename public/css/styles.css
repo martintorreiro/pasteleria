@@ -186,6 +186,10 @@ button:hover {
   align-items: flex-end;
 }
 
+.float-right {
+  float: right;
+}
+
 .d-line-block {
   display: inline-block;
 }
@@ -346,6 +350,9 @@ button:hover {
 }
 .padd-12-40 {
   padding: 12px 40px;
+}
+.padd-20-40 {
+  padding: 20px 40px;
 }
 .padd-20-0 {
   padding: 20px 0;
@@ -1318,14 +1325,14 @@ input.estrella {
   background-color: var(--naranja-primario);
 }
 
-#checkout-form .input-container {
+#shipping-address .input-container {
   display: flex;
   align-items: flex-start;
   padding: 8px 0;
   margin-bottom: 12px;
 }
 
-#checkout-form .input-container label {
+#shipping-address .input-container label {
   display: inline-block;
   width: 25%;
   text-align: right;
@@ -1333,13 +1340,13 @@ input.estrella {
   font-weight: bold;
 }
 
-#checkout-form .input-container.required label::after {
+#shipping-address .input-container.required label::after {
   content: "*";
   color: var(--naranja-primario);
   margin-left: 5px;
 }
 
-#checkout-form .input-container input {
+#shipping-address .input-container input {
   width: 75%;
   height: 42px;
   border: 0.5px solid var(--gris-secundario);
