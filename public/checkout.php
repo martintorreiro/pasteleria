@@ -7,7 +7,7 @@
     <div class="w-1024 centrado padd-0-20 marg-t-50 marg-b-50 color-negro-letra">
         <div>
             <ul class="checkout-header font-s-18 padd-8 marg-b-40 flex bold">
-                <li id="step1" class="active"> <span>01</span> SHIPPING</li>
+                <li class="active step1"> <span>01</span> SHIPPING</li>
                 <li> <span>02</span> REVIEW & PAYMENTS</li>
             </ul>
         </div>
@@ -15,7 +15,7 @@
         <div class="flex">
             <div id="checkout-shipping" class="w-x-60">
                 <h3 class="font-s-22 padd-b-10 marg-b-20 border-b-gris">Shipping Address</h3>
-                <form action="" id="shipping-address" method="post">
+                <form enctype="multipart/form-data" id="shipping-address" class="address-form" method="post">
                     <div class="input-container required">
                         <label for="email">Email Address</label><input id="email" name="email" type="email" required>
                     </div>
@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <button class="padd-20-40 bg-color-naranja bold color-blanco float-right marg-t-20">
+                    <button class="padd-20-40 bg-color-naranja bold color-blanco float-right marg-t-20 hover-bg-negro">
                         NEXT <span><i class="fa-solid fa-arrow-right"></i></span>
                     </button>
 
@@ -86,12 +86,12 @@
                 <input id="same-billing" type="checkbox" checked>
                 <label for="same-billing">My billing and shipping address are the same</label>
 
-                <div id="billing-addres-details" class="billing-address-details marg-t-20">
+                <div id="billing-address-details" class="address-details marg-t-20">
 
                 </div>
 
                 <div id="form-billing" class="disp-none">
-                    <form action="" id="shipping-address" method="post">
+                    <form enctype="multipart/form-data" id="billing-address" class="address-form" method=" post">
                         <div class="input-container required">
                             <label for="email">Email Address</label><input id="email" name="email" type="email"
                                 required>
@@ -137,7 +137,7 @@
                                 required>
                         </div>
 
-                        <div class="float-right  marg-t-20">
+                        <div class="flex jc-end marg-t-20">
                             <button type="button" class="bold color-negro-letra">
                                 CANCEL <span><i class="fa-solid fa-arrow-right hover-color-naranja"></i></span>
                             </button>
@@ -150,24 +150,17 @@
                     </form>
                 </div>
 
+                <div class="marg-t-50 flex jc-end">
+                    <button id="place-order" class="padd-20-40 bg-color-naranja bold color-blanco hover-bg-negro">
+                        PLACE ORDER
+                    </button>
+                </div>
             </div>
 
             <aside class="w-x-40 padd-30">
 
-                <h3 class="font-s-22 padd-b-10 marg-b-20 border-b-gris">Order Summary</h3>
-
-                <div class="marg-t-30">
-                    <h5 class="flex jc-sb padd-10-0">
-                        <div>
-                            <span class="color-naranja">
-                                <?php echo isset($_SESSION["carrito"])?count($_SESSION["carrito"]):"0" ?>
-                            </span>
-                            Items in Cart
-                        </div>
-                        <span><i class="fa-solid fa-angle-up"></i></span>
-                    </h5>
-                    <ul>
-                        <?php
+                <?php
+                        $total = 0 ;
                         $cadena = "";
                         foreach($_SESSION['carrito'] as $clave=>$valor){
 
@@ -178,7 +171,7 @@
                                                 ON fp.id_producto = p.id WHERE p.id = $id_producto GROUP BY p.id");
 
                             if($row = $res->fetch_assoc()){
-                                
+                                $total += $cantidad*$row["precio"];
                                 $cadena .= "<li class='marg-b-40 flex'>
                                                 <img class='w-70' src='fotos-producto/".$row["img"]."' alt='imagen producto'>
                                                 <div class='marg-l-15'>
@@ -191,17 +184,43 @@
                             }
 
                         }
-                        echo $cadena;
-                        ?>
+                        
+                    ?>
+
+                <h3 class="font-s-22 padd-b-10 marg-b-20 border-b-gris">Order Summary</h3>
+
+                <div class="flex jc-sb ai-center border-b-gris padd-20-0"><span>Order Total :</span> <span
+                        class="font-s-22 bold">$<?php echo $total; ?></span></div>
+
+                <div class="marg-t-30 border-b-gris">
+                    <h5 class="flex jc-sb padd-10-0">
+                        <div>
+                            <span class="color-naranja">
+                                <?php echo isset($_SESSION["carrito"])?count($_SESSION["carrito"]):"0" ?>
+                            </span>
+                            Items in Cart
+                        </div>
+                        <span><i class="fa-solid fa-angle-up"></i></span>
+                    </h5>
+                    <ul>
+                        <?php echo $cadena; ?>
                     </ul>
                 </div>
 
-                <div class="billing-address-details">
+                <div class="padd-20">
 
+                    <h5 class='flex jc-sb ai-center'>
+                        <span>SHIP TO:</span>
+                        <span><i class='fa-solid fa-gear color-gris-letra hover-color-negro pointer step1'></i></span>
+                    </h5>
+                    <div id="shipping-address-details" class="address-details padd-10">
+                    </div>
                 </div>
 
-            </aside>
         </div>
+
+        </aside>
+    </div>
     </div>
 
 </main>

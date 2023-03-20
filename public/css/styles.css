@@ -1325,14 +1325,14 @@ input.estrella {
   background-color: var(--naranja-primario);
 }
 
-#shipping-address .input-container {
+.address-form .input-container {
   display: flex;
   align-items: flex-start;
   padding: 8px 0;
   margin-bottom: 12px;
 }
 
-#shipping-address .input-container label {
+.address-form .input-container label {
   display: inline-block;
   width: 25%;
   text-align: right;
@@ -1340,13 +1340,13 @@ input.estrella {
   font-weight: bold;
 }
 
-#shipping-address .input-container.required label::after {
+.address-form .input-container.required label::after {
   content: "*";
   color: var(--naranja-primario);
   margin-left: 5px;
 }
 
-#shipping-address .input-container input {
+.address-form .input-container input {
   width: 75%;
   height: 42px;
   border: 0.5px solid var(--gris-secundario);

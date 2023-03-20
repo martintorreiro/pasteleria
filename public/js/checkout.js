@@ -4,7 +4,7 @@ $("#shipping-address").submit(function (e) {
   $("#checkout-shipping").css({ display: "none" });
   $("#checkout-review").css({ display: "block" });
   $(".checkout-header li").toggleClass("active");
-  $(".billing-address-details").html(
+  $(".address-details").html(
     "<p>" +
       e.target.elements.nombre.value +
       " " +
@@ -27,30 +27,42 @@ $("#shipping-address").submit(function (e) {
       e.target.elements.telefono.value +
       "</p>"
   );
-  $("#step1").addClass("pointer");
-  $("#step1").click(function () {
+  $(".step1").addClass("pointer");
+  $(".step1").click(function () {
     $("#checkout-shipping").css({ display: "block" });
     $("#checkout-review").css({ display: "none" });
     $(".checkout-header li").toggleClass("active");
-    $("#step1").off();
+    $(".step1").off();
+    $(".step1").removeClass("pointer");
+    $(".address-details").html("");
   });
 });
 
 $("#same-billing").change(function () {
-  console.log("checked", $(this).is(":checked"));
   if ($(this).is(":checked")) {
-    $("#billing-addres-details").removeClass("disp-none");
+    $("#place-order").css({ opacity: 1, cursor: "pointer" });
+    $("#place-order").addClass("hover-bg-negro");
+    $("#billing-address-details").removeClass("disp-none");
     $("#form-billing").addClass("disp-none");
   } else {
-    $("#billing-addres-details").addClass("disp-none");
+    $("#place-order").css({ opacity: 0.5, cursor: "auto" });
+    $("#place-order").removeClass("hover-bg-negro");
+    $("#billing-address-details").addClass("disp-none");
     $("#form-billing").removeClass("disp-none");
   }
 });
 
-$("#shipping-address").submit(function (e) {
+$("#billing-address").submit(function (e) {
   e.preventDefault();
 
-  $("#billing-addres-details").html(
+  $("#place-order").css({ opacity: 1, cursor: "pointer" });
+  $("#place-order").addClass("hover-bg-negro");
+  $("#billing-address-details").removeClass("disp-none");
+  $("#form-billing").addClass("disp-none");
+
+  $("#same-billing").prop("checked", true);
+
+  $("#billing-address-details").html(
     "<p>" +
       e.target.elements.nombre.value +
       " " +
@@ -73,4 +85,25 @@ $("#shipping-address").submit(function (e) {
       e.target.elements.telefono.value +
       "</p>"
   );
+});
+
+$("#place-order").click(function () {
+  if ($("#same-billing").is(":checked")) {
+    const shippForm = new FormData($("#shipping-address").get(0));
+    const billForm = new FormData($("#billing-address").get(0));
+
+    let shippObject = {};
+    shippForm.forEach((value, key) => (shippObject[key] = value));
+
+    let billObject = {};
+    billForm.forEach((value, key) => (billObject[key] = value));
+
+    const json = JSON.stringify({ shipp: shippObject, bill: billObject });
+
+    console.log("ssss", json);
+
+    $.post("service/guardar-pedido.php", { json }, function (data) {
+      console.log("-----------", data);
+    });
+  }
 });
