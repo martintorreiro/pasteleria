@@ -47,6 +47,10 @@ button:hover {
   position: absolute;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .top-0 {
   top: 0;
 }
@@ -269,6 +273,9 @@ button:hover {
   border-top: 1px solid var(--gris-secundario);
 }
 
+.font-s-10 {
+  font-size: 10px;
+}
 .font-s-12 {
   font-size: 12px;
 }

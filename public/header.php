@@ -1,3 +1,6 @@
+<?php
+    include "db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,15 +14,13 @@
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.numeric.js"></script>
+    <script src="js/modal.js"></script>
     <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/index.js"></script>
     <title>Document</title>
 </head>
 
-<?php
-    include "db.php";
-?>
 
 <body>
     <header>
@@ -46,7 +47,8 @@
                     id="cantidadCarrito"><?php echo isset($_SESSION['carrito'])?sizeof($_SESSION['carrito']):0 ?></span>
             </div>
 
-            <div id="contenido-carrito" class="absolute top-50 right-0 padd-20 bg-color-blanco zindex-10 disp-none"></div>
+            <div id="contenido-carrito" class="absolute top-50 right-0 padd-20 bg-color-blanco zindex-10 disp-none">
+            </div>
         </div>
         <div class="header-nav flex jc-sb ai-center" id="header-nav">
             <div class="relative h-x-100 w-x-100 marg-l-40">
@@ -132,4 +134,3 @@
         </div>
     </header>
     <script src="js/busqueda.js"></script>
-    

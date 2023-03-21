@@ -48,8 +48,10 @@ VALUES ('$correo_envio','$nombre_envio','$apellidos_envio','$telefono_envio','$p
 
 $res = $db->query($consulta);
 
-$idVenta= $db->insert_id();
+$idVenta= $db->insert_id;
 
 if($res){
     echo "ok";
+}else{
+    echo "error";
 }

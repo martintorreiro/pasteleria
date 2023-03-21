@@ -4,7 +4,7 @@
 
 <main>
 
-    <div class="w-1024 centrado padd-0-20 marg-t-50 marg-b-50 color-negro-letra">
+    <div id="checkout" class="w-1024 centrado padd-0-20 marg-t-50 marg-b-50 color-negro-letra">
         <div>
             <ul class="checkout-header font-s-18 padd-8 marg-b-40 flex bold">
                 <li class="active step1"> <span>01</span> SHIPPING</li>

@@ -92,18 +92,31 @@ $("#place-order").click(function () {
     const shippForm = new FormData($("#shipping-address").get(0));
     const billForm = new FormData($("#billing-address").get(0));
 
-    let shippObject = {};
-    shippForm.forEach((value, key) => (shippObject[key] = value));
+    let shipp = {};
+    shippForm.forEach((value, key) => (shipp[key] = value));
 
-    let billObject = {};
-    billForm.forEach((value, key) => (billObject[key] = value));
+    let bill = {};
+    billForm.forEach((value, key) => (bill[key] = value));
 
-    const json = JSON.stringify({ shipp: shippObject, bill: billObject });
-
-    console.log("ssss", json);
+    const json = JSON.stringify({ shipp, bill });
 
     $.post("service/guardar-pedido.php", { json }, function (data) {
-      console.log("-----------", data);
+      if (data == "ok") {
+        showMsg("<p class='ta-center'>Su compra se ha realizado con éxito</p>");
+
+        $.post(
+          "service/removeFromCart.php",
+          { id_producto: "all" },
+          function (data) {
+            console.log(data);
+            cargarCarrito();
+            $("#cantidadCarrito").load("service/carritoCantidad.php");
+            window.location = "checkout-succes.php";
+          }
+        );
+      } else {
+        showMsg("<p class='ta-center'>Error al realizar compra");
+      }
     });
   }
 });

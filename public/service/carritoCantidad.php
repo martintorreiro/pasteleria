@@ -1,5 +1,5 @@
 <?php
 include "../db.php";
 
-echo sizeof($_SESSION['carrito']);
+echo isset($_SESSION['carrito'])?sizeof($_SESSION['carrito']):0;
 ?>
