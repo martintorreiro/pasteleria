@@ -1,5 +1,7 @@
 <?php
 include "../db.php";
+include "../includes/generar-pdf.php";
+include "../includes/enviar-email.php";
 
 if(isset($_POST["json"])){
     
@@ -38,20 +40,55 @@ if(isset($_POST["json"])){
         $telefono_facturacion=$json["shipp"]["telefono"];
     }
     
-}
 
 
-$consulta = "INSERT INTO venta(correo_envio,nombre_envio,apellidos_envio,telefono_envio,provincia_envio,ciudad_envio,cp_envio,direccion_envio,
-correo_facturacion,nombre_facturacion,apellidos_facturacion,telefono_facturacion,provincia_facturacion,ciudad_facturacion,cp_facturacion,direccion_facturacion) 
-VALUES ('$correo_envio','$nombre_envio','$apellidos_envio','$telefono_envio','$provincia_envio','$ciudad_envio','$cp_envio','$direccion_envio',
-'$correo_facturacion','$nombre_facturacion','$apellidos_facturacion','$telefono_facturacion','$provincia_facturacion','$ciudad_facturacion','$cp_facturacion','$direccion_facturacion')";
 
-$res = $db->query($consulta);
+    $consulta = "INSERT INTO venta(correo_envio,nombre_envio,apellidos_envio,telefono_envio,provincia_envio,ciudad_envio,cp_envio,direccion_envio,
+    correo_facturacion,nombre_facturacion,apellidos_facturacion,telefono_facturacion,provincia_facturacion,ciudad_facturacion,cp_facturacion,direccion_facturacion) 
+    VALUES ('$correo_envio','$nombre_envio','$apellidos_envio','$telefono_envio','$provincia_envio','$ciudad_envio','$cp_envio','$direccion_envio',
+    '$correo_facturacion','$nombre_facturacion','$apellidos_facturacion','$telefono_facturacion','$provincia_facturacion','$ciudad_facturacion','$cp_facturacion','$direccion_facturacion')";
 
-$idVenta= $db->insert_id;
+    $res = $db->query($consulta);
 
-if($res){
-    echo "ok";
-}else{
-    echo "error";
+    $idVenta= $db->insert_id;
+
+    if($res){
+        foreach($_SESSION['carrito'] as $clave=>$valor){
+            $id_producto =  $_SESSION['carrito'][$clave]['id_producto'];
+            $cantidad = $_SESSION['carrito'][$clave]['cantidad'];
+            $res = $db->query("SELECT p.*,fp.nombre AS img FROM producto p LEFT JOIN fotos_producto fp 
+                                ON fp.id_producto = p.id WHERE p.id = $id_producto GROUP BY p.id");
+
+            if($row = $res->fetch_assoc()){
+                $precio = $row["precio"];
+                $nombre = $row["nombre"];
+                
+                $consulta = "INSERT INTO linea_venta(id_venta,id_producto,nombre,precio,cantidad) 
+                VALUES ($idVenta,$id_producto,'$nombre','$precio',$cantidad)";
+                $res = $db->query($consulta);
+
+                if($res){
+                    
+                    $estado = "ok";
+                }else{
+                    $estado =  "error";
+                }
+            }else{
+                $estado = "error";
+            }
+        }
+
+        if($estado == "ok"){
+
+            $html = "<h1>Creando PDF prueba</h1>";
+            $pdf = creaPdf($html);
+
+            $emailRes = enviarEmail("martin_vga4@hotmail.com", "Prueba de email", $pdf);
+        }
+        
+    }else{
+        $estado = "error";
+    }
+    echo $estado;
+
 }

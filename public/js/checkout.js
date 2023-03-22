@@ -101,6 +101,7 @@ $("#place-order").click(function () {
     const json = JSON.stringify({ shipp, bill });
 
     $.post("service/guardar-pedido.php", { json }, function (data) {
+      console.log(data);
       if (data == "ok") {
         showMsg("<p class='ta-center'>Su compra se ha realizado con éxito</p>");
 
@@ -108,7 +109,6 @@ $("#place-order").click(function () {
           "service/removeFromCart.php",
           { id_producto: "all" },
           function (data) {
-            console.log(data);
             cargarCarrito();
             $("#cantidadCarrito").load("service/carritoCantidad.php");
             window.location = "checkout-succes.php";
