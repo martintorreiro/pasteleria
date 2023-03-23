@@ -113,6 +113,9 @@ button:hover {
 .w-1024 {
   width: 1024px;
 }
+.w-600 {
+  width: 600px;
+}
 .w-160 {
   width: 160px;
 }
@@ -1345,6 +1348,7 @@ input.estrella {
   text-align: right;
   padding: 6px 15px 0 0;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .address-form .input-container.required label::after {

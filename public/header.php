@@ -14,6 +14,8 @@
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.numeric.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/cuenta.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="css/styles.css">
@@ -32,8 +34,8 @@
                 <ul class="flex">
                     <li><a class="color-blanco hover-color-naranja" href="blog.php">BLOG</a></li>
                     <li><a class="color-blanco hover-color-naranja" href="blog.php">MY WISH LIST</a></li>
-                    <li><a class="color-blanco hover-color-naranja" href="blog.php">SIGN IN</a></li>
-                    <li><a class="color-blanco hover-color-naranja" href="blog.php">CREATE AN ACOUNT</a></li>
+                    <li><a class="color-blanco hover-color-naranja" href="crear-cuenta.php">SIGN IN</a></li>
+                    <li><a class="color-blanco hover-color-naranja" href="crear-cuenta.php">CREATE AN ACOUNT</a></li>
                 </ul>
             </div>
             <div class="carrito pointer hover-color-negro" id="carrito">

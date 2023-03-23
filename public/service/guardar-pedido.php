@@ -40,9 +40,6 @@ if(isset($_POST["json"])){
         $telefono_facturacion=$json["shipp"]["telefono"];
     }
     
-
-
-
     $consulta = "INSERT INTO venta(correo_envio,nombre_envio,apellidos_envio,telefono_envio,provincia_envio,ciudad_envio,cp_envio,direccion_envio,
     correo_facturacion,nombre_facturacion,apellidos_facturacion,telefono_facturacion,provincia_facturacion,ciudad_facturacion,cp_facturacion,direccion_facturacion) 
     VALUES ('$correo_envio','$nombre_envio','$apellidos_envio','$telefono_envio','$provincia_envio','$ciudad_envio','$cp_envio','$direccion_envio',
@@ -53,6 +50,7 @@ if(isset($_POST["json"])){
     $idVenta= $db->insert_id;
 
     if($res){
+
         foreach($_SESSION['carrito'] as $clave=>$valor){
             $id_producto =  $_SESSION['carrito'][$clave]['id_producto'];
             $cantidad = $_SESSION['carrito'][$clave]['cantidad'];
@@ -80,10 +78,21 @@ if(isset($_POST["json"])){
 
         if($estado == "ok"){
 
-            $html = "<h1>Creando PDF prueba</h1>";
-            $pdf = creaPdf($html);
+            $htmlPdf = "<h1></h1>"; // CREAR FACTURA
+            $pdf = creaPdf($htmlPdf);
 
-            $emailRes = enviarEmail("martin_vga4@hotmail.com", "Prueba de email", $pdf);
+            $htmlEmail = "<div>
+                            <h1>Su compra ha sido realizada con éxito.</h1>
+                            <div>
+                                <h3>Datos de facturacion :</h3>
+                                <p>Nombre:<span>$nombre_facturacion</span></p>
+                                <p>Dirección:<span>$direccion_facturacion</span></p>
+                                <p>Teléfono:<span>$telefono_facturacion</span></p>
+                            </div>
+                        </div>";
+
+            $emailRes = enviarEmail($correo_facturacion, "Detalles de compra." , $htmlEmail, $pdf);
+            $estado = $emailRes; 
         }
         
     }else{
