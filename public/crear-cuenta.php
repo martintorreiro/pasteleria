@@ -13,12 +13,13 @@ include "header.php";
                     <h4 class="ta-center marg-b-20">Personal Information</h4>
 
                     <div class="input-container required">
-                        <label for="nombre">First Name</label><input id="nombre" name="nombre" type="text" required>
+                        <label for="nombre">First Name</label>
+                        <div class="input"><input id="nombre" name="nombre" type="text"></div>
                     </div>
 
                     <div class="input-container required">
-                        <label for="apellidos">Last Name</label><input id="apellidos" name="apellidos" type="text"
-                            required>
+                        <label for="apellidos">Last Name</label>
+                        <div class="input"><input id="apellidos" name="apellidos" type="text"></div>
                     </div>
 
                 </div>
@@ -28,17 +29,18 @@ include "header.php";
                     <h4 class="ta-center marg-b-20">Sign-in Information</h4>
 
                     <div class="input-container required">
-                        <label for="email">Email Address</label><input id="email" name="email" type="email" required>
+                        <label for="email">Email Address</label>
+                        <div class="input"><input id="email" name="email" type="email"></div>
                     </div>
 
                     <div class="input-container required">
-                        <label for="password">Password</label><input id="password" name="password" type="password"
-                            required>
+                        <label for="password">Password</label>
+                        <div class="input"><input id="password" name="password" type="password"></div>
                     </div>
 
                     <div class="input-container required">
-                        <label for="cpassword">Confirm Password</label><input id="cpassword" name="cpassword"
-                            type="password" required>
+                        <label for="cpassword">Confirm Password</label>
+                        <div class="input"><input id="cpassword" name="cpassword" type="password"></div>
                     </div>
 
                 </div>

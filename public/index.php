@@ -16,9 +16,19 @@
             </div>
             <div class="item">
                 <img src="imagenes/slider/slide-02.jpg" alt="">
+                <div class="texto-item">
+                    <div>Visit Our Cafe</div>
+                    <div>Enjoy Some Deliciuos Treats Available Only At Our Cafe</div>
+                    <div><a href="#">SEE ALL PRODUCTS</a></div>
+                </div>
             </div>
             <div class="item">
                 <img src="imagenes/slider/slide-03.jpg" alt="">
+                <div class="texto-item">
+                    <div>Order Customized Cakes Online</div>
+                    <div>Pick Your Frosting. Pick Your Feelling. Pick Your Favourite.</div>
+                    <div><a href="#">SEE ALL PRODUCTS</a></div>
+                </div>
             </div>
         </div>
 

@@ -4,8 +4,8 @@ const manejarFormulario = (form, servicio, callback) => {
     $id = $(this).attr("data-id");
     $tabla = $(this).attr("data-tabla");
     console.log($id, $tabla);
-    $ejeY = e.pageY;
-    $ejeX = e.pageX;
+    $ejeY = e.clientY;
+    $ejeX = e.clientX;
 
     $("main").append(
       "<div id=confirmacion-modal><p>Esta seguro de que desea borrar esta fila?</p><button id='confirmar-borrado'>Confirmar</button></div>"
@@ -302,7 +302,6 @@ function borrarFila(id, tabla) {
       console.log(data);
 
       $("#confirmacion-modal").remove();
-      callback();
     });
   });
 }
