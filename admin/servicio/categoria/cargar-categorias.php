@@ -10,7 +10,7 @@ $resSub = $db->query($consultaSub);
     
     while($row = $resCat->fetch_assoc()){
 
-        
+        $id = $row["id"];
         $cadenaSub="";
         $countSub = 0;
         $separador="";
@@ -18,8 +18,8 @@ $resSub = $db->query($consultaSub);
 
             if($rowSub["id_categoria"]==$row["id"]){
                 $cadenaSub .= $separador."<td>".$rowSub["nombre"]."</td>
-                <td><button data-id=".$rowSub['id']." class='editar2'><i class='fa-solid fa-pen-to-square'></i></button></td>
-                <td><button data-id=".$rowSub['id']." data-tabla='subcategoria' class='borrar'><i class='fa-solid fa-trash'></i></button></td>
+                <td><button onClick='cargarForm(`ajax/categoria/editar-subcategoria.php?id=".$rowSub['id']."`)' ><i class='fa-solid fa-pen-to-square'></i></button></td>
+                <td><button onClick='borrarFila(".$rowSub['id']." , `subcategoria`)'><i class='fa-solid fa-trash'></i></button></td>
                 </tr>
                 ";
                 
@@ -33,9 +33,9 @@ $resSub = $db->query($consultaSub);
 
         $cadena .="<tr>
                 <td rowspan=".$countSub.">".$row['nombre']."</td>
-                <td rowspan=".$countSub."><button data-id=".$row['id']." class='editar'><i class='fa-solid fa-pen-to-square'></i></button></td>
-                <td rowspan=".$countSub."><button data-id=".$row['id']." data-tabla='categoria' class='borrar'><i class='fa-solid fa-trash'></i></button></td>
-                <td rowspan=".$countSub."><button data-id=".$row['id']."  class='añadir2'><i class='fa-regular fa-square-plus'></i></button></td>".$cadenaSub."
+                <td rowspan=".$countSub."><button onClick='cargarForm(`ajax/categoria/editar-categoria.php?id=".$row['id']."`)' ><i class='fa-solid fa-pen-to-square'></i></button></td>
+                <td rowspan=".$countSub."><button onClick='borrarFila(".$row['id'].", `categoria`)'><i class='fa-solid fa-trash'></i></button></td>
+                <td rowspan=".$countSub."><button onClick='cargarForm(`ajax/categoria/nueva-subcategoria.php?id=$id`)'><i class='fa-regular fa-square-plus'></i></button></td>".$cadenaSub."
             ";
             if ($separador=="") $cadena.="</tr>";
     };

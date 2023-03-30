@@ -9,7 +9,7 @@
 
     <div class="contenedor-tabla">
         <div class="controles" id="controles">
-            <button type="button" id="añadir" onClick="cargarForm('ajax/post/nuevo-post.php')">Añadir
+            <button type="button" onClick="cargarForm('ajax/post/nuevo-post.php')">Añadir
                 Post</button>
         </div>
         <table>

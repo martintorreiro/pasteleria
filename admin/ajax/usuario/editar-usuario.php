@@ -13,7 +13,8 @@ if($row = $res->fetch_assoc()){
     <div class="cabecera">
         <h2>Editar Producto</h2>
     </div>
-    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data"
+        onSubmit="return enviarForm('servicio/usuario/editar-usuario.php','usuario/cargar-usuario.php')">
         <div class="form_body">
 
             <input type="hidden" name="id" value=<?php echo $id?>>
@@ -48,7 +49,7 @@ if($row = $res->fetch_assoc()){
 
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>

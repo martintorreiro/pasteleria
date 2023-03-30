@@ -11,7 +11,7 @@ $res = $db->query("SELECT * FROM usuario");
     </div>
 
     <form id="formulario-manejado" method="post" enctype="multipart/form-data"
-        onSubmit="return enviarForm('servicio/post/guardar-post.php')">
+        onSubmit="return enviarForm('servicio/post/guardar-post.php','post/cargar-posts.php'),'post/cargar-posts.php'">
 
         <div class="form_body">
             <div class="form_inputs">

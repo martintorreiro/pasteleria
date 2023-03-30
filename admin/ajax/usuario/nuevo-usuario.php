@@ -2,7 +2,8 @@
     <div class="cabecera">
         <h2>Añadir Usuario</h2>
     </div>
-    <form id="formulario-manejado" method="post" enctype="multipart/form-data">
+    <form id="formulario-manejado" method="post" enctype="multipart/form-data"
+        onSubmit="return enviarForm('servicio/usuario/guardar-usuario.php','usuario/cargar-usuario.php')">
         <div class="form_body">
 
 
@@ -35,7 +36,7 @@
 
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>

@@ -6,6 +6,9 @@
 
     <h1>Listado Productos</h1>
     <div class="contenedor-tabla">
+        <div class="controles" id="controles">
+            <button onClick="cargarForm('ajax/producto/nuevo-producto.php')">Añadir Producto</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -26,9 +29,7 @@
             </tbody>
         </table>
 
-        <div class="controles" id="controles">
-            <button id="añadir">Añadir Producto</button>
-        </div>
+        <div id="modal-formulario"></div>
     </div>
 
 
@@ -38,16 +39,8 @@
 
 <script src="js/cargarProductos.js"></script>
 <script>
-cargarProductos();
 $(function() {
-    manejarFormulario({
-            guardar: "ajax/producto/nuevo-producto.php",
-            editar: "ajax/producto/editar-producto.php"
-        }, {
-            guardar: "servicio/producto/guardar-producto.php",
-            editar: "servicio/producto/editar-producto.php"
-        },
-        cargarProductos)
+    cargarProductos();
 })
 </script>
 

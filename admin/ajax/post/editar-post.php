@@ -12,7 +12,7 @@ if($rowPost = $resPost -> fetch_assoc()){
         <h2>Editar Post</h2>
     </div>
     <form id="formulario-manejado" method="post" enctype="multipart/form-data"
-        onSubmit="return enviarForm('servicio/post/editar-post.php?id=<?php echo $id ?>')">
+        onSubmit="return enviarForm('servicio/post/editar-post.php?id=<?php echo $id ?>'),'post/cargar-posts.php'">
         <div class="form_body">
             <div class="form_inputs">
 

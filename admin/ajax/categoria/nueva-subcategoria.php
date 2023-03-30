@@ -6,7 +6,8 @@ $id=$_GET["id"];
     <div class="cabecera">
         <h2>Añadir Subcategoria</h2>
     </div>
-    <form id="formulario-manejado" action="servicio/guardar-subcategoria.php" method="post">
+    <form id="formulario-manejado" method="post"
+        onSubmit="return enviarForm('servicio/categoria/guardar-subcategoria.php','categoria/cargar-categorias.php')">
         <input type="hidden" name="id" value=<?php echo $id ?>>
         <div class="form_body">
             <div class="form_group">
@@ -16,7 +17,7 @@ $id=$_GET["id"];
 
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>

@@ -12,8 +12,8 @@ $res = $db->query($consulta);
                 <td>".$row['apellidos']."</td>
                 <td>".$row['correo']."</td>
                 <td>".$row['admin']."</td>
-                <td ><button data-id=".$row['id']." class='editar'><i class='fa-solid fa-pen-to-square'></i></button></td>
-                <td ><button data-id=".$row['id']." data-tabla='usuario' class='borrar'><i class='fa-solid fa-trash'></i></button></td>
+                <td ><button onClick='cargarForm(`ajax/usuario/editar-usuario.php?id=".$row['id']."`)' ><i class='fa-solid fa-pen-to-square'></i></button></td>
+                <td ><button onClick='borrarFila(".$row['id'].", `usuario`)'><i class='fa-solid fa-trash'></i></button></td>
                 </tr>
                 ";
     };

@@ -2,7 +2,8 @@
     <div class="cabecera">
         <h2>Añadir Categoria</h2>
     </div>
-    <form id="formulario-manejado" action="servicio/guardar-categoria.php" method="post">
+    <form id="formulario-manejado" method="post"
+        onSubmit="return enviarForm('servicio/categoria/guardar-categoria.php','categoria/cargar-categorias.php')">
         <div class="form_body">
             <div class="form_group">
                 <label for="nombre">Nombre:</label>
@@ -21,7 +22,7 @@
 
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>

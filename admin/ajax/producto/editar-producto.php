@@ -38,7 +38,8 @@ $(document).ready(function() {
     <div class="cabecera">
         <h2>Editar Producto</h2>
     </div>
-    <form id="formulario-manejado" enctype="multipart/form-data" method="post">
+    <form id="formulario-manejado" enctype="multipart/form-data" method="post"
+        onSubmit="return enviarForm('servicio/producto/editar-producto.php?id=<?php echo $id ?>','producto/cargar-productos.php')">
         <div class="form_body">
             <div class="form_inputs">
                 <div>
@@ -147,7 +148,7 @@ $(document).ready(function() {
             </div>
             <div class="controls">
                 <button>Enviar</button>
-                <button id="cancelar" type="button">Cancelar</button>
+                <button type="button" onClick="cerrarForm()">Cancelar</button>
             </div>
         </div>
     </form>

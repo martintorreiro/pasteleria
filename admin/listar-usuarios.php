@@ -6,6 +6,9 @@ include "header.php";
 <main>
     <h1>Listado Usuarios</h1>
     <div class="contenedor-tabla">
+        <div class="controles" id="controles">
+            <button onClick="cargarForm('ajax/usuario/nuevo-usuario.php')">Añadir Usuario</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -21,10 +24,8 @@ include "header.php";
 
             </tbody>
         </table>
+        <div id="modal-formulario"></div>
 
-        <div class="controles" id="controles">
-            <button id="añadir">Añadir Usuario</button>
-        </div>
     </div>
 
 
@@ -35,13 +36,6 @@ include "header.php";
 <script>
 $(function() {
     cargarUsuarios();
-    manejarFormulario({
-        guardar: "ajax/usuario/nuevo-usuario.php",
-        editar: "ajax/usuario/editar-usuario.php"
-    }, {
-        guardar: "servicio/usuario/guardar-usuario.php",
-        editar: "servicio/usuario/editar-usuario.php"
-    }, cargarUsuarios);
 })
 </script>
 <?php

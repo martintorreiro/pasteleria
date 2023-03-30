@@ -9,7 +9,8 @@ $row = $res->fetch_assoc();
     <div class="cabecera">
         <h2 class="marg-b-20">Editar Categoria</h2>
     </div>
-    <form id="formulario-manejado">
+    <form id="formulario-manejado"
+        onSubmit="return enviarForm('servicio/categoria/editar-categoria.php','categoria/cargar-categorias.php')">
         <div class="form_body">
             <input type="hidden" name="id" value=<?php echo $id ?>>
             <div class="form_group">
@@ -20,7 +21,7 @@ $row = $res->fetch_assoc();
 
         <div class="controls">
             <button>Enviar</button>
-            <button id="cancelar" type="button">Cancelar</button>
+            <button type="button" onClick="cerrarForm()">Cancelar</button>
         </div>
     </form>
 </div>
